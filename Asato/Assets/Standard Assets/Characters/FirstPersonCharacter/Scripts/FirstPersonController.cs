@@ -4,8 +4,9 @@ using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
 using Random = UnityEngine.Random;
 
+
 namespace UnityStandardAssets.Characters.FirstPerson
-{
+{	
     [RequireComponent(typeof (CharacterController))]
     [RequireComponent(typeof (AudioSource))]
     public class FirstPersonController : MonoBehaviour
@@ -40,6 +41,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float m_StepCycle;
         private float m_NextStep;
         private bool m_Jumping;
+		private bool m_Attacking;
         private AudioSource m_AudioSource;
 
         // Use this for initialization
@@ -67,6 +69,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
             }
+
+			if (!m_Attacking)
+				m_Attacking = CrossPlatformInputManager.GetButtonDown("Attack");
 
             if (!m_PreviouslyGrounded && m_CharacterController.isGrounded)
             {
@@ -131,6 +136,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
             UpdateCameraPosition(speed);
 
             m_MouseLook.UpdateCursorLock();
+
+			if (m_Attacking)
+				;
+			//WeaponSelector.Instance.GetCurrent().Attack();
+			// TODO: Ver por qué no puedo acceder weapon selector
         }
 
 

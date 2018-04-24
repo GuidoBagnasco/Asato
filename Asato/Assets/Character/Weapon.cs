@@ -4,7 +4,20 @@ using UnityEngine;
 
 public abstract class Weapon : MonoBehaviour {
 
-	public abstract void Attack ();
+	public float dmg = 0f;
 
+	protected enum ANIM {
+		Attack = 1
+	};
+
+
+	private void Start () {
+		#if UNITY_EDITOR
+		if (dmg == 0)
+			Debug.LogWarning ("Weapon`s damage not set");
+		#endif
+	}
+
+	public abstract void Attack ();
 
 }

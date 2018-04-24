@@ -31,6 +31,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private Camera m_Camera;
         private bool m_Jump;
+		private bool m_Attack;
         private float m_YRotation;
         private Vector2 m_Input;
         private Vector3 m_MoveDir = Vector3.zero;
@@ -71,7 +72,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
 
 			if (!m_Attacking)
-				m_Attacking = CrossPlatformInputManager.GetButtonDown("Attack");
+				m_Attacking = CrossPlatformInputManager.GetButtonDown("Fire1");
 
             if (!m_PreviouslyGrounded && m_CharacterController.isGrounded)
             {
@@ -137,11 +138,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             m_MouseLook.UpdateCursorLock();
 
-			if (m_Attacking)
-				;
-			//WeaponSelector.Instance.GetCurrent().Attack();
-			// TODO: Ver por qué no puedo acceder weapon selector
+			if (m_Attacking) {
+				Attack ();
+				m_Attacking = false;
+			}
         }
+
+		protected virtual void Attack() {}
 
 
         private void PlayJumpSound()

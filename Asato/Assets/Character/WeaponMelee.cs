@@ -5,23 +5,10 @@ using UnityEngine;
 
 public abstract class WeaponMelee : Weapon {
 
-	public float dmg = 0f;
-
-	protected enum ANIM {
-		Attack = 1
-	};
-
 	protected ANIM animations;
 	public Animator anim;
 
 
-
-	private void Start () {
-#if UNITY_EDITOR
-		if (dmg == 0)
-			Debug.LogWarning ("Weapon`s damage not set");
-#endif
-	}
 
 
 	public override void Attack () {

@@ -4,7 +4,15 @@ timeCreated: 1524448633
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    100000: //RootNode
+    400000: //RootNode
+    2100000: Material_001__low_poly_hand_painted_swords_by_ninja_magus-d2yc2cd_jpg
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Plane
+    7400000: Default Take
+    9500000: //RootNode
   externalObjects: {}
   materials:
     importMaterials: 1

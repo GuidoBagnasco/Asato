@@ -7,6 +7,10 @@ public class Control : FirstPersonController {
 
 
 	protected override void Attack () {
-		WeaponSelector.Instance.GetCurrent().Attack();
+		WeaponSelector.Instance.GetCurrent ().Attack ();
+	}
+
+	protected override void ChangeWeapon () {
+		WeaponSelector.Instance.ChangeWeapons ();
 	}
 }

@@ -20,4 +20,8 @@ public abstract class Weapon : MonoBehaviour {
 
 	public abstract void Attack ();
 
+	public void Sheathe(bool show) {
+		gameObject.SetActive (show);
+	}
+
 }

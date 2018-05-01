@@ -72,7 +72,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
 
 			if (!m_Attacking)
-				m_Attacking = CrossPlatformInputManager.GetButtonDown("Fire1");
+				m_Attacking = CrossPlatformInputManager.GetButtonDown("Attack");
 
             if (!m_PreviouslyGrounded && m_CharacterController.isGrounded)
             {
@@ -87,6 +87,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
 
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
+
+			if (CrossPlatformInputManager.GetButtonDown("ChangeWeapon")) {
+				ChangeWeapon ();
+			}
         }
 
 
@@ -146,6 +150,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
 		protected virtual void Attack() {}
 
+		protected virtual void ChangeWeapon () {}
 
         private void PlayJumpSound()
         {

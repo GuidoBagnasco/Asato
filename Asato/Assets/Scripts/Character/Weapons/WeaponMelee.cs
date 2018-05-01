@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public abstract class WeaponMelee : Weapon {
+public class WeaponMelee : Weapon {
 
 	protected ANIM animations;
 	public Animator anim;

@@ -25,7 +25,10 @@ public class WeaponSelector : MonoBehaviour {
 
 
 	public void ChangeWeapons () {
+		weapons[current].Sheathe (false);
 		current = (++current) < weapons.Count ? current : 0;
+		weapons[current].Sheathe (true);
+
 	}
 
 	public Weapon GetCurrent () {

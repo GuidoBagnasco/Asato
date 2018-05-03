@@ -6,32 +6,35 @@ public class WeaponRange : Weapon {
 
 	protected ANIM animations;
 	public Animator anim;
+    protected ParticleSystem _balaE;
+    [HideInInspector]
+    public int ammo = 100;
+    private bool isPlaying = false;
 
-	private int ammo = 100;
 
+    protected override void OnStart()
+    {
+        _balaE = GetComponentInChildren<ParticleSystem>();
+    }
 
+    public override void Attack () {
+        if (isPlaying) return;
 
-	public override void Attack () {
 		PlayAnim (ANIM.Attack);
 
 		if (VaryAmmo ())
 			OnAttack ();
 	}
 
-	protected virtual void OnAttack () {
-		RaycastHit hit;
 
-		if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity))
-		{
-			Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-			Debug.Log("Did Hit");
-		}
-		else
-		{
-			Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
-			Debug.Log("Did not Hit");
-		}
+	protected virtual void OnAttack () {
+        _balaE.Emit(1);
 	}
+
+
+    public void Stopped() {
+        isPlaying = false;
+    }
 
 
 	protected void PlayAnim (ANIM a) {
@@ -43,6 +46,8 @@ public class WeaponRange : Weapon {
 	}
 
 	public bool VaryAmmo (int amount = -1) {
-		return (ammo += amount) >= 0;
+        ammo += amount;
+        HUD.Instance.UpdateText(HUD.TextType.AMMO, ammo);
+		return ammo > 0;
 	}
 }

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public abstract class Weapon : MonoBehaviour {
 
-	public float dmg = 0f;
-
+	public int dmg = 0;
+    
 	protected enum ANIM {
 		Attack = 1
 	};
@@ -15,7 +15,9 @@ public abstract class Weapon : MonoBehaviour {
 		#if UNITY_EDITOR
 		if (dmg == 0)
 			Debug.LogWarning ("Weapon`s damage not set");
-		#endif
+        #endif
+
+        OnStart ();
 	}
 
 	public abstract void Attack ();
@@ -23,5 +25,10 @@ public abstract class Weapon : MonoBehaviour {
 	public void Sheathe(bool show) {
 		gameObject.SetActive (show);
 	}
+
+    protected virtual void OnStart()
+    {
+
+    }
 
 }

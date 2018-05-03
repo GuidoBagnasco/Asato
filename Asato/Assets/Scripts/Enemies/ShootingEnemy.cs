@@ -7,7 +7,7 @@ public class ShootingEnemy : EnemyBase
     float moveTimer = 0;
     protected ParticleSystem _balaE;
     protected Quaternion neededRotation;
-    protected bool aim = true;
+    protected bool aim = false;
     // Use this for initialization
 
     protected override void Start()
@@ -19,7 +19,6 @@ public class ShootingEnemy : EnemyBase
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(aim + "bla");
         moveTimer += Time.deltaTime * Time.timeScale;
         if (aim)
         {
@@ -32,11 +31,11 @@ public class ShootingEnemy : EnemyBase
             transform.rotation = Quaternion.Slerp(transform.rotation, neededRotation, Time.deltaTime * 100.0f);
             if (moveTimer < 1.5)
             {
-                Debug.Log(aim);
+         
 
                 if (Physics.Raycast(transform.position, transform.forward, out ICU) && ICU.transform.tag == "Player")
                 {
-                    Debug.Log("shoot");
+                    
                     _balaE.Emit(1);
                     move();
                 }
@@ -52,7 +51,7 @@ public class ShootingEnemy : EnemyBase
         else
         {
             rigidBody.velocity = navigator.desiredVelocity;
-            if (moveTimer > 2)
+            if (moveTimer > 3)
             {
                 navigator.isStopped = true;
                 moveTimer = 0;
@@ -71,7 +70,7 @@ public class ShootingEnemy : EnemyBase
         navigator.isStopped = false;
         Vector3 newPos = RandomNavSphere(transform.position, 10, -1);
         navigator.SetDestination(newPos);
-        Debug.Log("fdf");
+  
     }
     
     private static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask)

@@ -244,14 +244,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Character\Control.cs" />
-    <Compile Include="Assets\Scripts\Character\Sword.cs" />
-    <Compile Include="Assets\Scripts\Character\Weapon.cs" />
-    <Compile Include="Assets\Scripts\Character\WeaponMelee.cs" />
+    <Compile Include="Assets\Scripts\Character\Health.cs" />
+    <Compile Include="Assets\Scripts\Character\Weapons\Weapon.cs" />
+    <Compile Include="Assets\Scripts\Character\Weapons\WeaponMelee.cs" />
+    <Compile Include="Assets\Scripts\Character\Weapons\WeaponRange.cs" />
     <Compile Include="Assets\Scripts\Character\WeaponSelector.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyBase.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyStats.cs" />
     <Compile Include="Assets\Scripts\Enemies\ShootingEnemy.cs" />
     <Compile Include="Assets\Scripts\Enemies\ZombieMob.cs" />
+    <Compile Include="Assets\Scripts\HUD.cs" />
+    <Compile Include="Assets\Scripts\PlayerStats.cs" />
+    <Compile Include="Assets\Scripts\Spawner.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />

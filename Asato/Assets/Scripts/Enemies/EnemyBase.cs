@@ -23,17 +23,20 @@ public class EnemyBase : MonoBehaviour {
 
     protected virtual void OnParticleCollision(GameObject other)
     {
-        if (other.transform.tag == "ArmaPlayer")
+        if (other.transform.tag == "PlayerWeapon")
         {
-            stats.healthLoss(10); //valor daño de arma, el "10" es para que el codigo no chille
+            Debug.Log("ouch");
+            Weapon w = other.GetComponentInParent<Weapon>();
+            if (w != null) stats.healthLoss(w.dmg);
         }
     }
 
     protected virtual void OnTriggerEnter(Collider other)
     {
-        if (other.transform.tag == "ArmaPlayer")
+        if (other.transform.tag == "PlayerWeapon")
         {
-            stats.healthLoss(10); //valor daño de arma, el "10" es para que el codigo no chille
+            Weapon w = other.GetComponent<Weapon>();
+            if (w != null) stats.healthLoss(w.dmg);
         }
     }
 

@@ -21,7 +21,7 @@ public class ZombieMob : EnemyBase {
     void moveTowardsPlayer()
     {
         transform.LookAt(player.transform);
-        transform.Translate(Vector3.forward * 1 * Time.deltaTime);
+        navigator.SetDestination(playerPos);
     }
 
     protected override void OnTriggerEnter(Collider other)

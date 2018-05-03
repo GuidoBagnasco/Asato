@@ -16,6 +16,11 @@ public class Health : MonoBehaviour {
         if (value <= 0) HUD.Instance.GameOver();
 	}
 
+    public void addlife()
+    {
+        value += 80;
+    }
+
     protected virtual void OnParticleCollision(GameObject other)
     {
         if (other.transform.tag == "EnemyWeapon")

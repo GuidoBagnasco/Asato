@@ -17,7 +17,11 @@ public class PlayerStats : MonoBehaviour {
     }
 
 
-
+    public void restore()
+    {
+        health.addlife();
+        gun.ammo += 70;
+    }
     public void AddScore (int s)
     {
         score += s;

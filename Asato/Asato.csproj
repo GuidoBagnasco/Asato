@@ -243,10 +243,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Character\Sword.cs" />
-    <Compile Include="Assets\Character\Weapon.cs" />
-    <Compile Include="Assets\Character\WeaponMelee.cs" />
-    <Compile Include="Assets\Character\WeaponSelector.cs" />
+    <Compile Include="Assets\Scripts\Character\Control.cs" />
+    <Compile Include="Assets\Scripts\Character\Sword.cs" />
+    <Compile Include="Assets\Scripts\Character\Weapon.cs" />
+    <Compile Include="Assets\Scripts\Character\WeaponMelee.cs" />
+    <Compile Include="Assets\Scripts\Character\WeaponSelector.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyBase.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyStats.cs" />
     <Compile Include="Assets\Scripts\Enemies\ShootingEnemy.cs" />

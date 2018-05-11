@@ -1,10 +1,16 @@
 fileFormatVersion: 2
 guid: fef92f1ab43de4317892cbd157bc33c7
-timeCreated: 1524535553
-licenseType: Free
 ModelImporter:
   serializedVersion: 22
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    100000: //RootNode
+    400000: //RootNode
+    2100000: 'Material #450'
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: cadnav
+    7400000: Take 001
+    9500000: //RootNode
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -24,6 +30,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5

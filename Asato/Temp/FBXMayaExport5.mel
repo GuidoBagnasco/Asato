@@ -1,0 +1,22 @@
+print "Starting maya loading and fbx conversion \n";
+	
+if (`file -q -exists "C:/Users/ADMINI~1/Desktop/Asato/Asato/Asato/Assets/Art/Models/Weapons/Guns/gun2.mb"`)
+{		
+	file -o "C:/Users/ADMINI~1/Desktop/Asato/Asato/Asato/Assets/Art/Models/Weapons/Guns/gun2.mb";
+	FBXExportEmbeddedTextures -v false;
+	// FBXExportHardEdges -v true;
+	FBXExportApplyConstantKeyReducer -v false;
+	FBXExportShowUI -v false;
+
+	print "Before fbx export\n";
+	FBXExport -f "C:/Users/ADMINI~1/Desktop/Asato/Asato/Asato/Temp/ExportedFBXFile.fbx";
+	print "after fbx export\n";
+}
+else
+	print "Could not open Maya file.";
+
+sysFile -delete "C:/Users/ADMINI~1/Desktop/Asato/Asato/Asato/Temp/CommandPipe";
+
+$donepipeKill = `fopen "C:/Users/ADMINI~1/Desktop/Asato/Asato/Asato/Temp/SyncPipeKill" "w"`;
+fwrite $donepipeKill "Done";
+fclose $donepipeKill;

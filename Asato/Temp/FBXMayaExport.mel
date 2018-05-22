@@ -1,13 +1,13 @@
 while (1)
 {	
-	if (`filetest -r "C:/Users/ADMINI~1/Desktop/Asato/Asato/Asato/Temp/CommandPipe"`)
+	if (`filetest -r "C:/Users/ADMINI~1/DOCUME~1/GitHub/Asato/Asato/Temp/CommandPipe"`)
 	{
 		$exportNormals = 0;
 		$exportTangents = 0;
 		$bakeCommand = "";
 	
 		// Parse settings
-		$waitpipe = `fopen "C:/Users/ADMINI~1/Desktop/Asato/Asato/Asato/Temp/CommandPipe" "r"`;
+		$waitpipe = `fopen "C:/Users/ADMINI~1/DOCUME~1/GitHub/Asato/Asato/Temp/CommandPipe" "r"`;
 		$filename = `fgetline $waitpipe`;
 		$fbxFilename = `fgetline $waitpipe`;
 		
@@ -144,9 +144,9 @@ while (1)
 			else
 				print "Could not open Maya file.";
 
-			sysFile -delete "C:/Users/ADMINI~1/Desktop/Asato/Asato/Asato/Temp/CommandPipe";
+			sysFile -delete "C:/Users/ADMINI~1/DOCUME~1/GitHub/Asato/Asato/Temp/CommandPipe";
 
-			$donepipe = `fopen "C:/Users/ADMINI~1/Desktop/Asato/Asato/Asato/Temp/SyncPipe" "w"`;
+			$donepipe = `fopen "C:/Users/ADMINI~1/DOCUME~1/GitHub/Asato/Asato/Temp/SyncPipe" "w"`;
 			fwrite $donepipe "Done";
 			fclose $donepipe;
 			print "Finished maya loading and fbx conversion \n";

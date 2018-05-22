@@ -7,16 +7,17 @@ public List<GameObject> pooledEnemies;
 public GameObject enemies;
 public int maxAmount;
 	// Use this for initialization
-	void Awaken () {
+	void Awake () {
 		SharedInstance = this;
-	}
-	void Start () {
 		pooledEnemies = new List<GameObject>();
 		for (int i = 0; i < maxAmount; i++){
 			GameObject enemy = (GameObject) Instantiate(enemies);
 			enemy.SetActive(false);
 			pooledEnemies.Add(enemy);
 		}
+	}
+	void Start () {
+
 	}
 	public GameObject getPooledEnemy() {
 		for (int i = 0; i<pooledEnemies.Count;i++){

@@ -28,7 +28,7 @@ public class Spawner : MonoBehaviour {
         {
             GameObject e = bla.getPooledEnemy();
             Vector3 newPos = Random.insideUnitSphere * 50;
-
+            newPos.y=0;
             e.transform.position = playerPos.position + newPos;
 
             e.SetActive(true);

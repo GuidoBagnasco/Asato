@@ -26,18 +26,18 @@ fn DialogCallback =
 pluginManager.loadClass FBXIMP;
 pluginManager.loadClass FBXEXP;
 
-openLog "C:/Users/ADMINI~1/Desktop/Asato/Asato/Asato/Temp/3dsMax.log" mode:"w"
+openLog "C:/Users/ADMINI~1/DOCUME~1/GitHub/Asato/Asato/Temp/3dsMax.log" mode:"w"
 print "Start of log file."; flushLog();
 while true do
 (	
-	if ( fileExists "C:/Users/ADMINI~1/Desktop/Asato/Asato/Asato/Temp/MaxCommandPipe" ) then
+	if ( fileExists "C:/Users/ADMINI~1/DOCUME~1/GitHub/Asato/Asato/Temp/MaxCommandPipe" ) then
 	(
 		exportNormals = false;
 		exportTangents = false;
 		bakeAnimations = false;
 		useFileUnits = false;
 	
-		waitpipe = (openFile "C:/Users/ADMINI~1/Desktop/Asato/Asato/Asato/Temp/MaxCommandPipe" mode:"r");
+		waitpipe = (openFile "C:/Users/ADMINI~1/DOCUME~1/GitHub/Asato/Asato/Temp/MaxCommandPipe" mode:"r");
 		filename = (readLine waitpipe);
 		fbxFilename = (readline waitpipe);
 		
@@ -154,7 +154,7 @@ while true do
 					print "After fbx export"; flushLog();
 				)
 
-				deleteFile "C:/Users/ADMINI~1/Desktop/Asato/Asato/Asato/Temp/MaxCommandPipe";
+				deleteFile "C:/Users/ADMINI~1/DOCUME~1/GitHub/Asato/Asato/Temp/MaxCommandPipe";
 				print "Finished max loading and fbx conversion"; flushLog();
 			) -- with defaultAction
 		)

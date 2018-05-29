@@ -16,7 +16,7 @@ public class InputMobile : MonoBehaviour, IInput {
 
 
 	public bool Attack() {
-		return false;
+		return true;
 	}
 
 

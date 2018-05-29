@@ -51,7 +51,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Character\Control.cs" />
      <Compile Include="Assets\Scripts\Character\Health.cs" />
      <Compile Include="Assets\Scripts\Character\Mei.cs" />
      <Compile Include="Assets\Scripts\Character\Weapons\Weapon.cs" />
@@ -71,6 +70,10 @@
      <Compile Include="Assets\Scripts\MeiStats.cs" />
      <Compile Include="Assets\Scripts\Singleton.cs" />
      <Compile Include="Assets\Scripts\Spawner.cs" />
+     <Compile Include="Assets\Scripts\StandardAssets\CrossPlatformInputManager.cs" />
+     <Compile Include="Assets\Scripts\StandardAssets\MouseLook.cs" />
+     <Compile Include="Assets\Scripts\StandardAssets\StandaloneInput.cs" />
+     <Compile Include="Assets\Scripts\StandardAssets\VirtualInput.cs" />
      <Compile Include="Assets\Scripts\UI\GUICamera.cs" />
      <Compile Include="Assets\Scripts\UI\HUD.cs" />
  <Reference Include="Facebook.Unity.Settings">
@@ -115,10 +118,6 @@
  <Reference Include="UnityEngine.StandardEvents">
  <HintPath>/Users/gbagnasco/Library/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
  </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{D23C3C68-22B0-3D58-9A9F-4652FD06AF29}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

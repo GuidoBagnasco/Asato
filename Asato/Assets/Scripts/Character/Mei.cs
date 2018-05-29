@@ -60,39 +60,21 @@ public class Mei : MonoBehaviour {
 	//--------------------------------------------------------------------------//
 
 	private void Attack () {
-		if (InputMobile.AutoAttack)
-			(WeaponSelector.Instance as WeaponSelector).GetCurrent().AutoAim();
-		else if (iManager.Attack ())
-			(WeaponSelector.Instance as WeaponSelector).GetCurrent().Attack();
+		if (iManager.Attack ()) {
+			if (InputMobile.AutoAttack)
+				(WeaponSelector.Instance as WeaponSelector).GetCurrent ().AutoAim ();
+			else
+				(WeaponSelector.Instance as WeaponSelector).GetCurrent ().Attack ();
+		}
 	}
 
 	//--------------------------------------------------------------------------//
 
-	private float jumpForce = 1000f;
+	private float jumpForce = 6f;
 
 	private void Jump () {
 		if (iManager.Jump ())
-			rBody.AddForce (jumpForce * Vector3.forward);
-		//if (iManager.Jump ())
-		//	transform.Translate(Physics.gravity * m_GravityMultiplier * Time.fixedDeltaTime);
-		//	GetComponent<Rigidbody> ().velocity = Vector3.up * 4444f;
-		//if (true) {
-		//	float jumpForce = -m_StickToGroundForce;
-		//
-		//	if (m_Jump)
-		//	{
-		//		m_MoveDir.y = m_JumpSpeed;
-		//		PlayJumpSound();
-		//		m_Jump = false;
-		//		m_Jumping = true;
-		//	}
-		//}
-		//else
-		//{
-		//	m_MoveDir += Physics.gravity*m_GravityMultiplier*Time.fixedDeltaTime;
-		//}
+			rBody.AddForce (jumpForce * Vector3.up, ForceMode.Impulse);
 	}
-
-	//--------------------------------------------------------------------------//
 
 }

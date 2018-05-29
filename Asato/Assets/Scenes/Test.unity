@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 77320021}
   - component: {fileID: 77320020}
   - component: {fileID: 77320019}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -508,7 +508,36 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 54599965223172464, guid: 7b38e87531e6c41d5b8bd5b8a3e81a22,
+        type: 2}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 54599965223172464, guid: 7b38e87531e6c41d5b8bd5b8a3e81a22,
+        type: 2}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1159847018661962, guid: 7b38e87531e6c41d5b8bd5b8a3e81a22, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 143800105442374140, guid: 7b38e87531e6c41d5b8bd5b8a3e81a22,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20308913901038484, guid: 7b38e87531e6c41d5b8bd5b8a3e81a22,
+        type: 2}
+      propertyPath: m_CullingMask.m_Bits
+      value: 4294966783
+      objectReference: {fileID: 0}
+    - target: {fileID: 1412149975195968, guid: 7b38e87531e6c41d5b8bd5b8a3e81a22, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 143800105442374140, guid: 7b38e87531e6c41d5b8bd5b8a3e81a22, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 7b38e87531e6c41d5b8bd5b8a3e81a22, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &626244981

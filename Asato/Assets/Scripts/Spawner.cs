@@ -7,7 +7,6 @@ public class Spawner : MonoBehaviour {
     private Transform playerPos;
 	// Use this for initialization
 	void Start () {
-
         playerPos = GameObject.FindGameObjectWithTag("Player").transform;
         StartCoroutine(InstantiateEnemy());
     }

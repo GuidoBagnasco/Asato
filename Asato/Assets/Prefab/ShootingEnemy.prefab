@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 54947220819809814}
   - component: {fileID: 114086603880643596}
   - component: {fileID: 114870296259894108}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ShootingEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 4402787168494796}
   - component: {fileID: 198609120556282114}
   - component: {fileID: 199080951887066262}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: enemyBullet
   m_TagString: EnemyWeapon
   m_Icon: {fileID: 0}

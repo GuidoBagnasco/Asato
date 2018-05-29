@@ -6,12 +6,12 @@ public interface IInput {
 
 	bool Attack ();
 
-	Vector2 Walk ();
+	Vector2 Move ();
 
 	Vector2 Rotate ();
 
 	bool Jump ();
 
-	int ChangeWeapon ();
+	float ChangeWeapon ();
 
 }

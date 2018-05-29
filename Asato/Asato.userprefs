@@ -2,14 +2,23 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Character/WeaponSelector.cs">
     <Files>
-      <File FileName="Assets/Scripts/Character/WeaponSelector.cs" Line="21" Column="2" />
-      <File FileName="Assets/Standard Assets/Characters/FirstPersonCharacter/Scripts/FirstPersonController.cs" Line="91" Column="63" />
-      <File FileName="Assets/Standard Assets/CrossPlatformInput/Scripts/CrossPlatformInputManager.cs" Line="7" Column="2" />
-      <File FileName="Assets/Scripts/Character/Weapons/WeaponRange.cs" Line="46" Column="26" />
-      <File FileName="Assets/Scripts/Character/Weapons/Weapon.cs" Line="24" Column="31" />
-      <File FileName="Assets/Scripts/Character/Weapons/WeaponMelee.cs" Line="6" Column="7" />
-      <File FileName="Assets/Scripts/Character/Control.cs" Line="14" Column="35" />
-      <File FileName="Assets/Scripts/Character/Health.cs" Line="14" Column="2" />
+      <File FileName="Assets/Scripts/Input/Stick.cs" Line="57" Column="3" />
+      <File FileName="Assets/Scripts/Character/Mei.cs" Line="54" Column="57" />
+      <File FileName="Assets/Scripts/Input/InputKeyboard.cs" Line="28" Column="64" />
+      <File FileName="Assets/Character/Control.cs" Line="1" Column="1" />
+      <File FileName="Assets/Standard Assets/Characters/FirstPersonCharacter/Scripts/FirstPersonController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Standard Assets/Utility/SimpleActivatorMenu.cs" Line="1" Column="1" />
+      <File FileName="Assets/TouchControlsKit-Lite/Scripts/Runtime/TCKInput.cs" Line="1" Column="1" />
+      <File FileName="Assets/TouchControlsKit-Lite/Content/FirstPersonExample/Scripts/API_Demo.cs" Line="1" Column="1" />
+      <File FileName="Assets/Standard Assets/Characters/FirstPersonCharacter/Scripts/MouseLook.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Input/InputMobile.cs" Line="21" Column="1" />
+      <File FileName="Assets/Scripts/Character/Weapons/Weapon.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Singleton.cs" Line="1" Column="1" />
+      <File FileName="Assets/TouchControlsKit-Lite/Scripts/Runtime/Controllers/TCKButton.cs" Line="1" Column="1" />
+      <File FileName="Assets/TouchControlsKit-Lite/Scripts/Runtime/Controllers/TCKJoystick.cs" Line="1" Column="1" />
+      <File FileName="Assets/TouchControlsKit-Lite/Scripts/Runtime/Controllers/BaseData/ControllerBase.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/UI/GUICamera.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Character/WeaponSelector.cs" Line="28" Column="37" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

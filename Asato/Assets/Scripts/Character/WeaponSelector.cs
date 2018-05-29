@@ -4,19 +4,12 @@ using UnityEngine;
 
 using UnityStandardAssets.Characters.FirstPerson;
 
-public class WeaponSelector : MonoBehaviour {
+public class WeaponSelector : Singleton<WeaponSelector> {
 
 	public List<Weapon> weapons = new List<Weapon>();
 	private int current = 0;
-	public static WeaponSelector Instance = null;
-
-
-	private void Awake () {
-		if (!Instance)
-			Instance = this;
-		else if (Instance != this)
-			DestroyImmediate (this);
-	}
+	private float sensibility = 1.5f;
+	private bool smoothOn = false;
 
 
 	public void AddWeapon (Weapon w) {
@@ -24,14 +17,39 @@ public class WeaponSelector : MonoBehaviour {
 	}
 
 
-	public void ChangeWeapons () {
-		weapons[current].Sheathe (false);
-		current = (++current) < weapons.Count ? current : 0;
-		weapons[current].Sheathe (true);
-
+	public void ChangeWeapons (float d) {
+		if (Mathf.Abs (d) > sensibility) {
+			if (!smoothOn) {
+				StartCoroutine (SmoothChange (d));
+				smoothOn = true;
+			}
+		}
+		else {
+			StopCoroutine (SmoothChange (d));
+			smoothOn = false;
+		}
 	}
+
 
 	public Weapon GetCurrent () {
 		return weapons [current];
+	}
+
+
+	private void ChangeWeapon (float d) {
+		weapons[current].Sheathe (false);
+		if (d > sensibility)
+			current = (++current) < weapons.Count ? current : 0;
+		else if (d < -sensibility)
+			current = (--current) >= 0 ? current : weapons.Count - 1;
+		weapons[current].Sheathe (true);
+	}
+
+
+	private IEnumerator SmoothChange (float d) {
+		while (smoothOn) {
+			ChangeWeapon (d);
+			yield return new WaitForSeconds (0.7f);
+		}
 	}
 }

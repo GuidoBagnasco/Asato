@@ -6,14 +6,18 @@ public class Health : MonoBehaviour {
 
 	private static int HEALTH_MAX = 100;
 	private int value = HEALTH_MAX;
+	private HUD hud = null;
 
 
+	private void Start () {
+		hud = HUD.Instance as HUD;
+	}
 
     public void Damage (int amount) {
 		value = Mathf.Clamp (value - amount, 0, HEALTH_MAX);
-        HUD.Instance.UpdateText(HUD.TextType.HEALTH, value);
+        hud.UpdateText(HUD.TextType.HEALTH, value);
 
-        if (value <= 0) HUD.Instance.GameOver();
+        if (value <= 0) hud.GameOver();
 	}
 
     protected virtual void OnParticleCollision(GameObject other)

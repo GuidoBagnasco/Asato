@@ -14,8 +14,9 @@ public class InputMobile : MonoBehaviour, IInput {
 		joyCon = MobileControlsRef.Instance as MobileControlsRef;
 	}
 
+
 	public bool Attack() {
-		return joyCon.fireButton.isDOWN;
+		return false;
 	}
 
 

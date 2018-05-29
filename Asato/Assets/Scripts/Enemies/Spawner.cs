@@ -20,11 +20,11 @@ public class Spawner : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        //StartCoroutine(InstantiateEnemy());
+    
 	}
 
     public IEnumerator InstantiateEnemy() {
-        while (maxSpawn<20)
+        while (maxSpawn<20)//Cambiar esto
         {
             GameObject e = bla.getPooledEnemy();
             Vector3 newPos = Random.insideUnitSphere * 50;

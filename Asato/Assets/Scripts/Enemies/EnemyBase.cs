@@ -15,6 +15,8 @@ public class EnemyBase : MonoBehaviour {
     protected NavMeshAgent navigator;
     protected Rigidbody rigidBody;
     protected enemyState moveStyle = enemyState.attack;
+    
+    protected List<GameObject> ownList = null;
 
 
     // Use this for initialization
@@ -54,5 +56,16 @@ public class EnemyBase : MonoBehaviour {
         UnityEngine.AI.NavMesh.SamplePosition(randDirection, out navHit, dist, layermask);
 
         return navHit.position;
+    }
+
+    protected virtual void Recycle(){
+        if (stats.enemyHealth <1)
+        {
+            gameObject.SetActive(false); //Crear metodo Die agregar 
+        }
+    }
+
+    public void addList (List<GameObject> pooList){
+        ownList = pooList;
     }
 }

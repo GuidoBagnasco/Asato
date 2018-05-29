@@ -14,9 +14,6 @@ public class Mei : MonoBehaviour {
 		iManager = InputManager.Instance as InputManager;
 		cam = Camera.main.transform;
 		rBody = GetComponent<Rigidbody> ();
-		//minimumY = minimumY * Mathf.Deg2Rad;
-		//maximumY = maximumY * Mathf.Deg2Rad;
-
 	}
 	
 

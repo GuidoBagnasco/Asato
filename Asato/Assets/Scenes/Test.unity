@@ -200,6 +200,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a9365324c5064e168b3ec7fd34f4293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minimumY: 0
+  maximumY: 60
 --- !u!1 &460680271
 GameObject:
   m_ObjectHideFlags: 0
@@ -892,6 +894,18 @@ Prefab:
     - target: {fileID: 54599965223172464, guid: 7b38e87531e6c41d5b8bd5b8a3e81a22,
         type: 2}
       propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4839302161915584, guid: 7b38e87531e6c41d5b8bd5b8a3e81a22, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4839302161915584, guid: 7b38e87531e6c41d5b8bd5b8a3e81a22, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4839302161915584, guid: 7b38e87531e6c41d5b8bd5b8a3e81a22, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:

@@ -8,12 +8,15 @@ public class Mei : MonoBehaviour {
 	private InputManager iManager = null;
 	private Transform cam = null;
 	private Rigidbody rBody = null;
-
+	float angle  = 0f;
 
 	private void Start () {
 		iManager = InputManager.Instance as InputManager;
 		cam = Camera.main.transform;
 		rBody = GetComponent<Rigidbody> ();
+		//minimumY = minimumY * Mathf.Deg2Rad;
+		//maximumY = maximumY * Mathf.Deg2Rad;
+
 	}
 	
 
@@ -27,15 +30,16 @@ public class Mei : MonoBehaviour {
 
 	//--------------------------------------------------------------------------//
 
-	private const float minimumY = -60f;
-	private const float maximumY = 60f;
+	public float minimumY = -60f;
+	public float maximumY = 60f;
 	private float sensitivity = 130F;
 
 	private void Rotate () {
 		Vector2 rot = iManager.Rotate ();
-		cam.transform.Rotate(-rot.y * sensitivity * Vector3.right * Time.deltaTime);
-		//cam.transform.localEulerAngles = new Vector3(Mathf.Clamp(cam.transform.localEulerAngles.x, minimumY, maximumY), 0, 0);
+		angle += -rot.y * sensitivity * Time.deltaTime;
+		angle = Mathf.Clamp (angle, minimumY, maximumY);
 		transform.Rotate(rot.x * sensitivity * Vector3.up * Time.deltaTime, Space.World);
+		cam.transform.localEulerAngles = angle * Vector3.right;
 	}
 
 	//--------------------------------------------------------------------------//

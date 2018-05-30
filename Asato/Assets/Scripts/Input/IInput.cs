@@ -10,8 +10,6 @@ public interface IInput {
 
 	Vector2 Rotate ();
 
-	bool Jump ();
-
 	float ChangeWeapon ();
 
 }

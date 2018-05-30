@@ -33,10 +33,4 @@ public class InputMobile : MonoBehaviour, IInput {
 	public float ChangeWeapon () {
 		return joyCon.chwStick.padPos.x;
 	}
-
-
-	public bool Jump () {
-		return false;
-	}
-
 }

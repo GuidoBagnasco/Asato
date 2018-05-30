@@ -33,8 +33,4 @@ public class InputKeyboard : MonoBehaviour, IInput {
 	public float ChangeWeapon () {
 		return CrossPlatformInputManager.GetAxis("Mouse ScrollWheel");
 	}
-
-	public bool Jump () {
-		return CrossPlatformInputManager.GetButtonDown ("Jump");
-	}
 }

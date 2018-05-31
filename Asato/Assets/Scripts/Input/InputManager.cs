@@ -7,6 +7,7 @@ public class InputManager : Singleton<InputManager> {
 	public IInput input;
 	public GameObject mobileControls;
 
+
 	protected override void OnAwake () {
 #if UNITY_STANDALONE || UNITY_EDITOR
 		input = gameObject.AddComponent<InputKeyboard>();
@@ -24,6 +25,4 @@ public class InputManager : Singleton<InputManager> {
 	public Vector2 Rotate () { return input.Rotate (); }
 
 	public float ChangeWeapon () { return input.ChangeWeapon (); }
-
-	public bool Jump () { return input.Jump (); }
 }

@@ -10,6 +10,11 @@ public class Mei : MonoBehaviour {
 	private Rigidbody rBody = null;
 	float angle  = 0f;
 
+	private bool isGrounded = true;
+	public float groundSearchRange = 5.0f;
+	private int layerMask = 1 << 10 | 1 << 11;
+
+
 	private void Start () {
 		iManager = InputManager.Instance as InputManager;
 		cam = Camera.main.transform;
@@ -67,11 +72,18 @@ public class Mei : MonoBehaviour {
 
 	//--------------------------------------------------------------------------//
 
-	private float jumpForce = 6f;
+	private float jumpForce = 2.5f;
 
 	private void Jump () {
-		if (iManager.Jump ())
-			rBody.AddForce (jumpForce * Vector3.up, ForceMode.Impulse);
+		RaycastHit hit;
+		if (isGrounded) {
+			if (!Physics.Raycast (transform.position, transform.TransformDirection (Vector3.down), out hit, groundSearchRange, layerMask)) {
+				rBody.AddForce (jumpForce * Vector3.up, ForceMode.Impulse);
+				isGrounded = false;
+			}
+		} else {
+			isGrounded = Physics.Raycast (transform.position + Vector3.forward * 2f, transform.TransformDirection (Vector3.down), out hit, groundSearchRange, layerMask);
+		}
 	}
 
 }

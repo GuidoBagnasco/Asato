@@ -33,6 +33,7 @@ public class EnemyBase : MonoBehaviour {
         {
             Weapon w = other.GetComponentInParent<Weapon>();
             if (w != null) stats.healthLoss(w.dmg);
+            Recycle();
         }
     }
 
@@ -43,6 +44,7 @@ public class EnemyBase : MonoBehaviour {
         {
             Weapon w = other.GetComponent<Weapon>();
             if (w != null) stats.healthLoss(w.dmg);
+            Recycle();
         }
     }
 
@@ -62,6 +64,7 @@ public class EnemyBase : MonoBehaviour {
         if (stats.enemyHealth <1)
         {
             gameObject.SetActive(false); //Crear metodo Die agregar 
+            ownList.Add(gameObject);
         }
     }
 

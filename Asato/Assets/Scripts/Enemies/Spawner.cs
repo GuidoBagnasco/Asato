@@ -10,9 +10,16 @@ public class Spawner : MonoBehaviour {
     private GameObject player;
     private bool dead = false;
     private int maxSpawn = 0;
-    public enemyPool bla;
-	// Use this for initialization
-	void Start () {
+    private enemyPool shooty;
+    private enemyPool melee;
+    private void Awake()
+    {
+        shooty = new enemyPool(Enemy);
+        melee = new enemyPool(EnemyM);
+
+    }
+
+    void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
         playerPos = GameObject.FindGameObjectWithTag("Player").transform;
         StartCoroutine(InstantiateEnemy());
@@ -26,7 +33,8 @@ public class Spawner : MonoBehaviour {
     public IEnumerator InstantiateEnemy() {
         while (maxSpawn<20)//Cambiar esto
         {
-            GameObject e = bla.getPooledEnemy();
+
+            GameObject e = melee.getPooledEnemy();
             Vector3 newPos = Random.insideUnitSphere * 50;
             newPos.y=0;
             e.transform.position = playerPos.position + newPos;

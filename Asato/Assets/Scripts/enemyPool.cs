@@ -4,13 +4,19 @@ using UnityEngine;
 public class enemyPool : MonoBehaviour {
 public static enemyPool SharedInstance;
 public List<GameObject> pooledEnemies;
-public GameObject enemies;
+private GameObject enemies;
 public int maxAmount;
-	// Use this for initialization
-	void Awake () {
-		SharedInstance = this;//Cambiar a generico
-		pooledEnemies = new List<GameObject>();
-		
+
+    public enemyPool(GameObject enemyPrefab)
+    {
+        enemies = enemyPrefab;
+        pooledEnemies = new List<GameObject>();
+
+    }
+    // Use this for initialization
+    void Awake () {
+
+
 		for (int i = 0; i < maxAmount; i++) {
 			pooledEnemies.Add(Create());
 		}
@@ -34,8 +40,8 @@ public int maxAmount;
 
 	public GameObject Create(){
 		GameObject enemy = (GameObject) Instantiate(enemies);
+        enemy.GetComponent<EnemyBase>().addList(pooledEnemies);
 		enemy.SetActive(false);
-		enemy
 		return enemy;
 	}
 }

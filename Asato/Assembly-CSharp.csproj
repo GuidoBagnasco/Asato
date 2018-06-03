@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\enemyPool.cs" />
     <Compile Include="Assets\Scripts\HUD.cs" />
     <Compile Include="Assets\Scripts\PlayerStats.cs" />
+    <Compile Include="Assets\Totem.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/ale_a/OneDrive/Documents/GitHub/Asato/Asato/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

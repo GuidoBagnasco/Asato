@@ -6,23 +6,22 @@ public class Spawner : MonoBehaviour {
     public GameObject Enemy;
     public GameObject EnemyM;
     public GameObject Totem;
-    private Transform playerPos;
-    private GameObject player;
-    private bool dead = false;
-    private int maxSpawn = 0;
+    public int maxSpawnEnemy = 0;
+    public int maxSpawnEnemyM = 0;
+    public int maxSpawnEnemyTotem = 0;
     private enemyPool shooty;
     private enemyPool melee;
+    private enemyPool totemSpawn;
+
     private void Awake()
     {
-        shooty = new enemyPool(Enemy);
-        melee = new enemyPool(EnemyM);
-
+        shooty = new enemyPool(Enemy, maxSpawnEnemy);
+        melee = new enemyPool(EnemyM, maxSpawnEnemyM);
+        totemSpawn = new enemyPool(Totem, maxSpawnEnemyTotem);
     }
 
     void Start () {
-        player = GameObject.FindGameObjectWithTag("Player");
-        playerPos = GameObject.FindGameObjectWithTag("Player").transform;
-        StartCoroutine(InstantiateEnemy());
+
     }
 	
 	// Update is called once per frame
@@ -30,38 +29,62 @@ public class Spawner : MonoBehaviour {
     
 	}
 
-    public IEnumerator InstantiateEnemy() {
-        while (maxSpawn<20)//Cambiar esto
+    public void InstantiateEnemy(int val, Transform playerPos, int amountToSpawn) {
+        for (int i = 0; i < amountToSpawn; i++)
         {
+            switch (val)
+            {
+                case 0:
+                    GameObject shooter = shooty.getPooledEnemy();
+                    Vector3 shooterPos = Random.insideUnitSphere * 50;
+                    shooterPos.y = 0;
+                    shooter.transform.position = playerPos.position + shooterPos;
 
-            GameObject e = melee.getPooledEnemy();
-            Vector3 newPos = Random.insideUnitSphere * 50;
-            newPos.y=0;
-            e.transform.position = playerPos.position + newPos;
+                    shooter.SetActive(true);
+                    break;
 
-            e.SetActive(true);
+                case 1:
+                    GameObject mob = melee.getPooledEnemy();
+                    Vector3 mobPos = Random.insideUnitSphere * 50;
+                    mobPos.y = 0;
+                    mob.transform.position = playerPos.position + mobPos;
 
-            yield return new WaitForSeconds(Random.Range(3.0f, 5.0f));
+                    mob.SetActive(true);
+                    break;
+
+                case 2:
+                    GameObject totem = totemSpawn.getPooledEnemy();
+                    Vector3 totemPos = Random.insideUnitSphere * 50;
+                    totemPos.y = 3;
+                    totem.transform.position = playerPos.position + totemPos;
+
+                    totem.SetActive(true);
+                    break;
+            }
+
         }
-        maxSpawn++;
+    
     }
 
-    protected virtual void OnTriggerEnter(Collider other)
+    public void ReturnToList(GameObject enemy, int val)
     {
-
-        if (other.transform.tag == "PlayerWeapon" && dead == false)
+        switch (val)
         {
-            GameObject e = Instantiate(Totem) as GameObject;
-            Vector3 newPos = Random.insideUnitSphere * 50;
+            case 0:
+                enemy.SetActive(false);
+                shooty.pooledEnemies.Add(enemy);
+                break;
 
-            e.transform.position = playerPos.position + newPos;
-            newPos = e.transform.position;
-            newPos.y = playerPos.position.y+3;
-            e.transform.position = newPos;
-            player.GetComponent<PlayerStats>().restore();
-            Destroy(gameObject);
+            case 1:
+                enemy.SetActive(false);
+                melee.pooledEnemies.Add(enemy);
+                break;
 
-            dead = true;
+            case 2:
+                enemy.GetComponent<Totem>().RestoreStats();
+                enemy.SetActive(false);
+                totemSpawn.pooledEnemies.Add(enemy);
+                break;
         }
     }
 }

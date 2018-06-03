@@ -9,6 +9,7 @@ public class ZombieMob : EnemyBase
     protected override void Start()
     {
         base.Start();
+        type = 1;
     }
 
     // Update is called once per frame

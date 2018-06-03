@@ -22,7 +22,7 @@ public class WeaponRange : Weapon {
 
 		PlayAnim (ANIM.Attack);
 
-		if (VaryAmmo ())
+		if (VaryAmmo (-1))
 			OnAttack ();
 	}
 
@@ -45,7 +45,7 @@ public class WeaponRange : Weapon {
 		}
 	}
 
-	public bool VaryAmmo (int amount = -1) {
+	public bool VaryAmmo (int amount) {
         ammo += amount;
         HUD.Instance.UpdateText(HUD.TextType.AMMO, ammo);
 		return ammo > 0;

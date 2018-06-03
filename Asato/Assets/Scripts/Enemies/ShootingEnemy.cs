@@ -14,6 +14,7 @@ public class ShootingEnemy : EnemyBase
     {
         base.Start();
         _balaE = GetComponentInChildren<ParticleSystem>();
+        type = 0;
     }
 
     // Update is called once per frame

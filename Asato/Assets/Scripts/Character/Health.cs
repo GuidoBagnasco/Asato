@@ -18,7 +18,12 @@ public class Health : MonoBehaviour {
 
     public void addlife()
     {
-        value += 80;
+        if (value<100)
+        {
+            value = Mathf.Clamp(value + 80, 0, HEALTH_MAX);
+            HUD.Instance.UpdateText(HUD.TextType.HEALTH, value);
+        }
+
     }
 
     protected virtual void OnParticleCollision(GameObject other)

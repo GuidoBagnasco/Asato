@@ -2,29 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 public class enemyPool : MonoBehaviour {
-public static enemyPool SharedInstance;
 public List<GameObject> pooledEnemies;
-private GameObject enemies;
-public int maxAmount;
+private GameObject enemies = null;
+private int maxAmount;
 
-    public enemyPool(GameObject enemyPrefab)
+    public enemyPool(GameObject enemyPrefab, int maxSpawn)
     {
         enemies = enemyPrefab;
         pooledEnemies = new List<GameObject>();
-
+        maxAmount = maxSpawn;
+        for (int i = 0; i < maxAmount; i++)
+        {
+            pooledEnemies.Add(Create());
+        }
     }
     // Use this for initialization
     void Awake () {
 
 
-		for (int i = 0; i < maxAmount; i++) {
-			pooledEnemies.Add(Create());
-		}
-
 	}
 	void Start () {
 
-	}
+    }
 	public GameObject getPooledEnemy() {
 		GameObject go = null;
 

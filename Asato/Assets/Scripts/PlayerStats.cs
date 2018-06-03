@@ -20,7 +20,8 @@ public class PlayerStats : MonoBehaviour {
     public void restore()
     {
         health.addlife();
-        gun.ammo += 70;
+        gun.VaryAmmo(70);
+        Debug.Log("InRestore");
     }
     public void AddScore (int s)
     {

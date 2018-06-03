@@ -10,17 +10,17 @@ public enum enemyState
 }
 public class EnemyBase : MonoBehaviour {
     protected GameObject player;
-    protected Vector3 playerPos;
     protected EnemyStats stats;
     protected NavMeshAgent navigator;
     protected Rigidbody rigidBody;
     protected enemyState moveStyle = enemyState.attack;
-    
+    protected Spawner factory;
     protected List<GameObject> ownList = null;
-
+    protected int type;
 
     // Use this for initialization
     protected virtual void Start () {
+        factory = GameObject.Find("SpawnData").GetComponent<Spawner>();
         stats = this.GetComponent<EnemyStats>();
         player = GameObject.FindGameObjectWithTag("Player");
         rigidBody = this.GetComponent<Rigidbody>();
@@ -62,10 +62,7 @@ public class EnemyBase : MonoBehaviour {
 
     protected virtual void Recycle(){
         if (stats.enemyHealth <1)
-        {
-            gameObject.SetActive(false); //Crear metodo Die agregar 
-            ownList.Add(gameObject);
-        }
+            factory.ReturnToList(gameObject, type);      
     }
 
     public void addList (List<GameObject> pooList){

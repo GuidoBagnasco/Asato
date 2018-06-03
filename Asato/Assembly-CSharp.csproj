@@ -60,7 +60,9 @@
      <Compile Include="Assets\Scripts\Enemies\EnemyBase.cs" />
      <Compile Include="Assets\Scripts\Enemies\EnemyStats.cs" />
      <Compile Include="Assets\Scripts\Enemies\ShootingEnemy.cs" />
+     <Compile Include="Assets\Scripts\Enemies\Spawner.cs" />
      <Compile Include="Assets\Scripts\Enemies\ZombieMob.cs" />
+     <Compile Include="Assets\Scripts\EnemyPool.cs" />
      <Compile Include="Assets\Scripts\Extras\Earth.cs" />
      <Compile Include="Assets\Scripts\Input\IInput.cs" />
      <Compile Include="Assets\Scripts\Input\InputKeyboard.cs" />
@@ -70,13 +72,14 @@
      <Compile Include="Assets\Scripts\Input\Stick.cs" />
      <Compile Include="Assets\Scripts\MeiStats.cs" />
      <Compile Include="Assets\Scripts\Singleton.cs" />
-     <Compile Include="Assets\Scripts\Spawner.cs" />
      <Compile Include="Assets\Scripts\StandardAssets\CrossPlatformInputManager.cs" />
      <Compile Include="Assets\Scripts\StandardAssets\MouseLook.cs" />
      <Compile Include="Assets\Scripts\StandardAssets\StandaloneInput.cs" />
      <Compile Include="Assets\Scripts\StandardAssets\VirtualInput.cs" />
      <Compile Include="Assets\Scripts\UI\GUICamera.cs" />
      <Compile Include="Assets\Scripts\UI\HUD.cs" />
+     <Compile Include="Assets\Scripts\UI\RestartButton.cs" />
+     <Compile Include="Assets\Totem.cs" />
  <Reference Include="Facebook.Unity.Settings">
  <HintPath>/Users/guidobagnasco/Documents/GitHub/Asato/Asato/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
  </Reference>

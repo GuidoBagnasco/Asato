@@ -13,6 +13,7 @@ public class Health : MonoBehaviour {
 		hud = HUD.Instance as HUD;
 	}
 
+
     public void Damage (int amount) {
 		value = Mathf.Clamp (value - amount, 0, HEALTH_MAX);
         hud.UpdateText(HUD.TextType.HEALTH, value);
@@ -20,13 +21,24 @@ public class Health : MonoBehaviour {
         if (value <= 0) hud.GameOver();
 	}
 
-    protected virtual void OnParticleCollision(GameObject other)
-    {
-        if (other.transform.tag == "EnemyWeapon")
-        {
+
+    protected virtual void OnParticleCollision(GameObject other) {
+        if (other.transform.tag == "EnemyWeapon")  {
             Debug.Log("ouch");
             Damage(other.GetComponentInParent<EnemyStats>().enemyDamage);
         }
+		(HUD.Instance as HUD).UpdateText(HUD.TextType.HEALTH, value);
+
+		if (value <= 0) (HUD.Instance as HUD).GameOver();
+	}
+
+
+    public void addlife() {
+        if (value < 100) {
+            value = Mathf.Clamp(value + 80, 0, HEALTH_MAX);
+			(HUD.Instance as HUD).UpdateText(HUD.TextType.HEALTH, value);
+        }
+
     }
 
 }

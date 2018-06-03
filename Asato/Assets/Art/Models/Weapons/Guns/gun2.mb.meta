@@ -1,10 +1,23 @@
 fileFormatVersion: 2
 guid: 823ff2ca8a8924e9eb59018205269be7
-timeCreated: 1525203237
-licenseType: Free
 ModelImporter:
   serializedVersion: 22
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: WPN_ASLc_MDL
+    100004: WPN_PSTb_MDL
+    400000: //RootNode
+    400002: WPN_ASLc_MDL
+    400004: WPN_PSTb_MDL
+    2100000: 01 - Default
+    2100002: 02 - Default
+    2300000: WPN_ASLc_MDL
+    2300002: WPN_PSTb_MDL
+    3300000: WPN_ASLc_MDL
+    3300002: WPN_PSTb_MDL
+    4300000: WPN_ASLc_MDL
+    4300002: WPN_PSTb_MDL
+    9500000: //RootNode
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -24,6 +37,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5

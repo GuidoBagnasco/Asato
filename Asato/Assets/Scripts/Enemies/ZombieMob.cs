@@ -2,36 +2,58 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ZombieMob : EnemyBase {
+public class ZombieMob : EnemyBase
+{
     float stunTime = 0;
-    // Use this for initialization
-    protected override void Start()  {
+
+
+	protected override void Start() {
         base.Start();
-    }
-	
-	// Update is called once per frame
-	void Update () {
-        if (stunTime >= 0)
-            stunTime -= Time.deltaTime * Time.timeScale;
-        else
-            moveTowardsPlayer();
-        
+        type = EnemyType.MELEE;
     }
 
-    void moveTowardsPlayer()
-    {
-        transform.LookAt(player.transform);
-        navigator.SetDestination(playerPos);
-    }
 
-    protected override void OnTriggerEnter(Collider other)
-    {
-        base.OnTriggerEnter(other);
+	private void Update() {
+        stunTime += Time.deltaTime * Time.timeScale;
 
-        if (other.transform.tag == "Player")
-        {
-            ///player.healthLossPl(10); esto es placeholder
-            stunTime = 2;
+        switch (moveStyle) {
+            case EnemyState.IDLE:
+                if (stunTime >= 5) {
+                    Vector3 newPos = RandomNavSphere(transform.position, 10, -1);
+                    navigator.SetDestination(newPos);
+                    stunTime = 0;
+                }
+
+                if (Vector3.Distance(transform.position, player.transform.position) < 70)
+                    moveStyle = EnemyState.ATTACK;
+                break;
+
+            case EnemyState.ATTACK:
+                if (Vector3.Distance(transform.position, player.transform.position) > 70) {
+                    moveStyle = EnemyState.IDLE;
+                    return;
+                }
+                if (stunTime >= 5)
+                    moveTowardsPlayer();
+                break;
         }
+
+    }
+
+
+    private void moveTowardsPlayer() {
+        navigator.isStopped = false;
+        navigator.SetDestination(player.transform.position);
+    }
+
+
+    private void OnCollisionEnter(Collision other) {
+        if (other.transform.tag == "Player") {
+
+            other.gameObject.GetComponent<Health>().Damage(stats.enemyDamage);
+            stunTime = 0;
+            navigator.isStopped = true;
+        }
+       
     }
 }

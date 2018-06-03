@@ -10,18 +10,22 @@ public class MeiStats : MonoBehaviour {
     public static MeiStats Instance;
 
 
-    private void Awake()
-    {
+    private void Awake() {
         if (Instance == null) Instance = this;
         else if (Instance != this) DestroyImmediate(this);
     }
 
 
+    public void restore() {
+        health.addlife();
+        gun.VaryAmmo(70);
+        Debug.Log("InRestore");
+    }
 
-    public void AddScore (int s)
-    {
+
+    public void AddScore (int s) {
         score += s;
-		(HUD.Instance as HUD).UpdateText(HUD.TextType.SCORE, score);
+			(HUD.Instance as HUD).UpdateText(HUD.TextType.SCORE, score);
     }
 
 

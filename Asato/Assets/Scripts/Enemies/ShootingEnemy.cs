@@ -14,76 +14,61 @@ public class ShootingEnemy : EnemyBase
     {
         base.Start();
         _balaE = GetComponentInChildren<ParticleSystem>();
+        type = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
         moveTimer += Time.deltaTime * Time.timeScale;
-        if (aim)
+        Debug.Log(moveStyle);
+        switch (moveStyle)
         {
-            RaycastHit ICU;
-
-            neededRotation = Quaternion.LookRotation(player.transform.position - transform.position);
-            neededRotation.x = 0;
-            neededRotation.z = 0;
-
-            transform.rotation = Quaternion.Slerp(transform.rotation, neededRotation, Time.deltaTime * 100.0f);
-            if (moveTimer < 1.5)
-            {
-         
-
-                if (Physics.Raycast(transform.position, transform.forward, out ICU) && ICU.transform.tag == "Player")
+            case EnemyState.IDLE:
+                rigidBody.velocity = navigator.desiredVelocity;
+                if (moveTimer > 3 && Vector3.Distance(transform.position, player.transform.position) < 70)
                 {
-                    
-                    _balaE.Emit(1);
-                    move();
+                    navigator.isStopped = true;
+                    moveTimer = 0;
+                    moveStyle = EnemyState.ATTACK;
                 }
+                else if (moveTimer > 3 && Vector3.Distance(transform.position, player.transform.position) > 70)
+                    move();
+                break;
 
-            }
-            else 
+            case EnemyState.ATTACK:
+                RaycastHit ICU;
 
-                move();
-      
+                neededRotation = Quaternion.LookRotation(player.transform.position - transform.position);
+                neededRotation.x = 0;
+                neededRotation.z = 0;
 
+                transform.rotation = Quaternion.Slerp(transform.rotation, neededRotation, Time.deltaTime * 100.0f);
+                if (moveTimer < 1.5)
+                {
+                    if (Physics.Raycast(transform.position, transform.forward, out ICU) && ICU.transform.tag == "Player")
+                    {
+                        _balaE.Emit(1);
+                        move();
+                    }
+                }
+                else
+
+                    move();
+                break;
         }
-
-        else
-        {
-            rigidBody.velocity = navigator.desiredVelocity;
-            if (moveTimer > 3)
-            {
-                navigator.isStopped = true;
-                moveTimer = 0;
-                aim = true;
-            }
-
-
-        }
-
-    }
-
+    } 
     private void move()
     {
-        aim = false;
+        moveStyle = EnemyState.IDLE;
         moveTimer = 0;
         navigator.isStopped = false;
         Vector3 newPos = RandomNavSphere(transform.position, 10, -1);
         navigator.SetDestination(newPos);
-  
+
     }
-    
-    private static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask)
-    {
-        Vector3 randDirection = Random.insideUnitSphere * dist;
 
-        randDirection += origin;
 
-        UnityEngine.AI.NavMeshHit navHit;
-        UnityEngine.AI.NavMesh.SamplePosition(randDirection, out navHit, dist, layermask);
-
-        return navHit.position;
-    }
 }
 
 

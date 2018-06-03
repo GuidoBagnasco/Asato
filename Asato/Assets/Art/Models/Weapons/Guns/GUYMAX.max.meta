@@ -1,10 +1,59 @@
 fileFormatVersion: 2
 guid: 2e3a2697e0c1e4f13b7743dd7a59b026
-timeCreated: 1525203237
-licenseType: Free
 ModelImporter:
   serializedVersion: 22
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    100000: f9f53c0.obj
+    100002: fa02218.obj
+    100004: fa09020.obj
+    100006: fa103b0.obj
+    100008: fa167a0.obj
+    100010: fa1a480.obj
+    100012: fa209a0.obj
+    100014: fa209a0.obj01
+    100016: //RootNode
+    400000: f9f53c0.obj
+    400002: fa02218.obj
+    400004: fa09020.obj
+    400006: fa103b0.obj
+    400008: fa167a0.obj
+    400010: fa1a480.obj
+    400012: fa209a0.obj
+    400014: fa209a0.obj01
+    400016: //RootNode
+    2100000: 'Material #2371'
+    2100002: 'Material #2372'
+    2100004: 'Material #2373'
+    2100006: 'Material #2374'
+    2100008: 'Material #2375'
+    2100010: 'Material #2376'
+    2100012: 'Material #2377'
+    2300000: f9f53c0.obj
+    2300002: fa02218.obj
+    2300004: fa09020.obj
+    2300006: fa103b0.obj
+    2300008: fa167a0.obj
+    2300010: fa1a480.obj
+    2300012: fa209a0.obj
+    2300014: fa209a0.obj01
+    3300000: f9f53c0.obj
+    3300002: fa02218.obj
+    3300004: fa09020.obj
+    3300006: fa103b0.obj
+    3300008: fa167a0.obj
+    3300010: fa1a480.obj
+    3300012: fa209a0.obj
+    3300014: fa209a0.obj01
+    4300000: fa209a0.obj
+    4300002: fa1a480.obj
+    4300004: fa167a0.obj
+    4300006: fa103b0.obj
+    4300008: fa09020.obj
+    4300010: fa02218.obj
+    4300012: f9f53c0.obj
+    4300014: fa209a0.obj01
+    9500000: //RootNode
+    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -24,6 +73,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5

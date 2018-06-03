@@ -2,18 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MeiStats : MonoBehaviour {
+public class MeiStats : Singleton<MeiStats> {
 
     public Health health;
     public WeaponRange gun;
     private int score = 0;
-    public static MeiStats Instance;
-
-
-    private void Awake() {
-        if (Instance == null) Instance = this;
-        else if (Instance != this) DestroyImmediate(this);
-    }
 
 
     public void restore() {

@@ -2,13 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ZombieMob : EnemyBase
-{
+public class ZombieMob : EnemyBase {
     float stunTime = 0;
 
 
-	protected override void Start() {
-        base.Start();
+	protected override void OnStart() {
         type = EnemyType.MELEE;
     }
 

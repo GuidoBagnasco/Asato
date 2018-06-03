@@ -25,13 +25,17 @@ public class EnemyBase : MonoBehaviour {
     protected EnemyType type;
 
 
-	protected virtual void Start () {
+	protected void Start () {
         factory = GameObject.Find("SpawnData").GetComponent<Spawner>();
         stats = this.GetComponent<EnemyStats>();
         player = GameObject.FindGameObjectWithTag("Player");
         rigidBody = this.GetComponent<Rigidbody>();
         navigator = this.GetComponent<NavMeshAgent>();
+		OnStart ();
     }
+
+
+	protected virtual void OnStart () {	}
 
 
     protected virtual void OnParticleCollision(GameObject other) {

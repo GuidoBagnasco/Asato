@@ -2,32 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShootingEnemy : EnemyBase
-{
+public class ShootingEnemy : EnemyBase {
     float moveTimer = 0;
     protected ParticleSystem _balaE;
     protected Quaternion neededRotation;
     protected bool aim = false;
-    // Use this for initialization
 
-    protected override void Start()
-    {
-        base.Start();
+
+    protected override void OnStart() {
         _balaE = GetComponentInChildren<ParticleSystem>();
         type = 0;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+
+	private void Update() {
         moveTimer += Time.deltaTime * Time.timeScale;
         Debug.Log(moveStyle);
-        switch (moveStyle)
-        {
+        switch (moveStyle) {
             case EnemyState.IDLE:
                 rigidBody.velocity = navigator.desiredVelocity;
-                if (moveTimer > 3 && Vector3.Distance(transform.position, player.transform.position) < 70)
-                {
+                if (moveTimer > 3 && Vector3.Distance(transform.position, player.transform.position) < 70) {
                     navigator.isStopped = true;
                     moveTimer = 0;
                     moveStyle = EnemyState.ATTACK;

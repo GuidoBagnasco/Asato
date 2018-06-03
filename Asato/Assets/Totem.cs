@@ -6,8 +6,7 @@ public class Totem : EnemyBase {
 
     private int maxSpawn = 0;
 
-    protected override void Start () {
-        base.Start();
+    protected override void OnStart () {
         navigator = null;
 		type = EnemyType.TOTEM;
         StartCoroutine("InstantiateEnemy");

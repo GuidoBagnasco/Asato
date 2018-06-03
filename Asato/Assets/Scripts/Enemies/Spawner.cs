@@ -3,31 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour {
-    public GameObject Enemy;
+    public GameObject EnemyS;
     public GameObject EnemyM;
     public GameObject Totem;
-    public int maxSpawnEnemy = 0;
-    public int maxSpawnEnemyM = 0;
-    public int maxSpawnEnemyTotem = 0;
+    public int maxPoolEnemyS = 0;
+    public int maxPoolEnemyM = 0;
+    public int maxPoolTotem = 0;
     private enemyPool shooty;
     private enemyPool melee;
     private enemyPool totemSpawn;
 
     private void Awake()
     {
-        shooty = new enemyPool(Enemy, maxSpawnEnemy);
-        melee = new enemyPool(EnemyM, maxSpawnEnemyM);
-        totemSpawn = new enemyPool(Totem, maxSpawnEnemyTotem);
+        shooty = new enemyPool(EnemyS, maxPoolEnemyS);
+        melee = new enemyPool(EnemyM, maxPoolEnemyM);
+        totemSpawn = new enemyPool(Totem, maxPoolTotem);
     }
-
-    void Start () {
-
-    }
-	
-	// Update is called once per frame
-	void Update () {
-    
-	}
 
     public void InstantiateEnemy(int val, Transform playerPos, int amountToSpawn) {
         for (int i = 0; i < amountToSpawn; i++)

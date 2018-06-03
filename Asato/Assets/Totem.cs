@@ -13,11 +13,6 @@ public class Totem : EnemyBase {
         StartCoroutine("InstantiateEnemy");
     }
 	
-	// Update is called once per frame
-	void Update () {
- 
-	}
-
     public void RestoreStats()
     {
         factory.InstantiateEnemy(2, player.transform, 1);

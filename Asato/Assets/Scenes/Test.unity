@@ -968,6 +968,27 @@ Prefab:
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 114566359228629372, guid: 46457a8376ee1764c89719af6de8faba,
+        type: 2}
+      propertyPath: EnemyS
+      value: 
+      objectReference: {fileID: 1080375061427262, guid: 0a431faf6ab369042a1af375bc8a8d2c,
+        type: 2}
+    - target: {fileID: 114566359228629372, guid: 46457a8376ee1764c89719af6de8faba,
+        type: 2}
+      propertyPath: maxPoolEnemyS
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114566359228629372, guid: 46457a8376ee1764c89719af6de8faba,
+        type: 2}
+      propertyPath: maxPoolEnemyM
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114566359228629372, guid: 46457a8376ee1764c89719af6de8faba,
+        type: 2}
+      propertyPath: maxPoolTotem
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 46457a8376ee1764c89719af6de8faba, type: 2}
   m_IsPrefabParent: 0

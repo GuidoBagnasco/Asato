@@ -177,6 +177,11 @@ Prefab:
       propertyPath: TotemPosition.Array.data[3]
       value: 
       objectReference: {fileID: 2037849522}
+    - target: {fileID: 95612409778530294, guid: c76fd0fcea081479390b42579197414c,
+        type: 2}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: 823ff2ca8a8924e9eb59018205269be7, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c76fd0fcea081479390b42579197414c, type: 2}
   m_IsPrefabParent: 0
@@ -307,6 +312,16 @@ Prefab:
     - target: {fileID: 4215225844580252, guid: 764521a923091474b8dc37816e0074ee, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198104680279143526, guid: 764521a923091474b8dc37816e0074ee,
+        type: 2}
+      propertyPath: InitialModule.startRotationX.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198104680279143526, guid: 764521a923091474b8dc37816e0074ee,
+        type: 2}
+      propertyPath: InitialModule.startRotationY.minMaxState
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 764521a923091474b8dc37816e0074ee, type: 2}

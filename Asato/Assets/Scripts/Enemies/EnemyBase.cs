@@ -40,6 +40,7 @@ public class EnemyBase : MonoBehaviour {
 
     protected virtual void OnParticleCollision(GameObject other) {
         if (other.transform.tag == "PlayerWeapon") {
+            Debug.Log("fdfd");
             Weapon w = other.GetComponentInParent<Weapon>();
             if (w != null) stats.healthLoss(w.dmg);
             Recycle();

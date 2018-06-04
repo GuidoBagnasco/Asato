@@ -10,9 +10,9 @@ public class ShootingEnemy : EnemyBase {
     public Animator animator;
 
     protected override void OnStart() {
+
         _balaE = GetComponentInChildren<ParticleSystem>();
-        type = EnemyType.SHOOTING
-            ;
+        type = EnemyType.SHOOTING;
     }
 
 

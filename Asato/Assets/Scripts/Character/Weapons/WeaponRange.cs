@@ -48,7 +48,7 @@ public class WeaponRange : Weapon {
 
 	public bool VaryAmmo (int amount) {
         ammo += amount;
-        hud.UpdateText(HUD.TextType.AMMO, ammo);
+        //hud.UpdateText(HUD.TextType.AMMO, ammo);
 		return ammo > 0;
 	}
 }

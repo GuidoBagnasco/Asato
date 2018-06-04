@@ -9,6 +9,7 @@ public class Spawner : MonoBehaviour {
     public int maxPoolEnemyS = 0;
     public int maxPoolEnemyM = 0;
     public int maxPoolTotem = 0;
+    public List<Transform> TotemPosition;
     private EnemyPool shooty;
     private EnemyPool melee;
     private EnemyPool totemSpawn;
@@ -26,9 +27,7 @@ public class Spawner : MonoBehaviour {
             switch (type)  {
 				case EnemyType.TOTEM:
 					GameObject totem = totemSpawn.getPooledEnemy();
-					Vector3 totemPos = Random.insideUnitSphere * 50;
-					totemPos.y = 3;
-					totem.transform.position = playerPos.position + totemPos;
+                    totem.transform.position = TotemPosition[Random.Range(0, 3)].position;
 					
 					totem.SetActive(true);
 					break;

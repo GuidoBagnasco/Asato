@@ -31,7 +31,16 @@ public class Health : MonoBehaviour {
 
 		if (value <= 0) (HUD.Instance as HUD).GameOver();
 	}
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.tag == "EnemyWeapon")
+        {
+            Damage(other.transform.parent.parent.parent.gameObject.GetComponent<EnemyStats>().enemyDamage); //NO ME ARREPIENTO DE NADA
+        }
+        		(HUD.Instance as HUD).UpdateText(HUD.TextType.HEALTH, value);
 
+		if (value <= 0) (HUD.Instance as HUD).GameOver();
+    }
 
     public void addlife() {
         if (value < 100) {

@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class EnemyPool : MonoBehaviour {
-public List<GameObject> pooledEnemies;
+public class EnemyPool {
+public List<GameObject> pooledEnemies = new List<GameObject>();
 private GameObject enemies = null;
 private int maxAmount;
 
     public EnemyPool(GameObject enemyPrefab, int maxSpawn) {
-        enemies = enemyPrefab;
-        pooledEnemies = new List<GameObject>();
+        enemies = enemyPrefab; 
         maxAmount = maxSpawn;
         for (int i = 0; i < maxAmount; i++)
         {
@@ -34,7 +33,7 @@ private int maxAmount;
 
 
 	public GameObject Create() {
-		GameObject enemy = (GameObject) Instantiate(enemies);
+		GameObject enemy = GameObject.Instantiate(enemies) as GameObject;
         enemy.GetComponent<EnemyBase>().addList(pooledEnemies);
 		enemy.SetActive(false);
 		return enemy;

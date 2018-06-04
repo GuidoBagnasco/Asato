@@ -20,8 +20,7 @@ public class EnemyStats : MonoBehaviour {
         enemyHealth -= playerDamage;
         if (enemyHealth <= 0) {
 
-			(MeiStats.Instance as MeiStats).AddScore (scorePoints);
-            Destroy(gameObject);
+		    (PlayerStats.Instance as PlayerStats).AddScore (scorePoints);
         }
     }
 }

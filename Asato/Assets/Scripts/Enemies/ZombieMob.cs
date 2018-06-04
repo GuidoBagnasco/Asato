@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ZombieMob : EnemyBase {
-    float stunTime = 0;
+    float stunTime = 5;
+    private bool run = false;
+    public Animator animator;
 
-
-	protected override void OnStart() {
+    protected override void OnStart() {
         type = EnemyType.MELEE;
     }
 
@@ -16,6 +17,8 @@ public class ZombieMob : EnemyBase {
 
         switch (moveStyle) {
             case EnemyState.IDLE:
+                animator.SetBool("Running", false);
+               
                 if (stunTime >= 5) {
                     Vector3 newPos = RandomNavSphere(transform.position, 10, -1);
                     navigator.SetDestination(newPos);
@@ -27,12 +30,18 @@ public class ZombieMob : EnemyBase {
                 break;
 
             case EnemyState.ATTACK:
+                
                 if (Vector3.Distance(transform.position, player.transform.position) > 70) {
                     moveStyle = EnemyState.IDLE;
                     return;
                 }
+                
                 if (stunTime >= 5)
+                {
+
                     moveTowardsPlayer();
+                }
+
                 break;
         }
 
@@ -41,17 +50,20 @@ public class ZombieMob : EnemyBase {
 
     private void moveTowardsPlayer() {
         navigator.isStopped = false;
+
+        animator.SetBool("Running", true);
         navigator.SetDestination(player.transform.position);
     }
-
-
-    private void OnCollisionEnter(Collision other) {
-        if (other.transform.tag == "Player") {
-
-            other.gameObject.GetComponent<Health>().Damage(stats.enemyDamage);
+    private void OnCollisionEnter(Collision other)
+    {
+       
+        if (other.transform.tag == "Player")
+        {
+            
             stunTime = 0;
             navigator.isStopped = true;
+            animator.SetTrigger("Attack");
         }
-       
+
     }
 }

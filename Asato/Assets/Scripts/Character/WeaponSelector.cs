@@ -8,7 +8,7 @@ public class WeaponSelector : Singleton<WeaponSelector> {
 
 	public List<Weapon> weapons = new List<Weapon>();
 	private int current = 0;
-	private float sensibility = 1.5f;
+	private float sensibility = 1.0f;
 	private bool smoothOn = false;
 
 

@@ -32,7 +32,7 @@ public class Mei : MonoBehaviour {
 
 	//--------------------------------------------------------------------------//
 
-	public float minimumY = -60f;
+	public float minimumY = -90f;
 	public float maximumY = 60f;
 	private float sensitivity = 130F;
 

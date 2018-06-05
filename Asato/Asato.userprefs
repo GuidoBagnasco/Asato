@@ -1,30 +1,14 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Totem.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Character/WeaponSelector.cs">
     <Files>
-      <File FileName="Assets/Scripts/Enemies/Spawner.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Input/InputManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Character/Mei.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Character/Weapons/Weapon.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Character/Weapons/WeaponMelee.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Character/Weapons/WeaponRange.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Input/InputKeyboard.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Input/InputMobile.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Input/IInput.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/StandardAssets/CrossPlatformInputManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/StandardAssets/VirtualInput.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/StandardAssets/StandaloneInput.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Extras/Earth.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Character/Health.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Enemies/EnemyStats.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/MeiStats.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/EnemyPool.cs" Line="38" Column="28" />
-      <File FileName="Assets/Totem.cs" Line="9" Column="41" />
-      <File FileName="Assets/Scripts/Enemies/EnemyBase.cs" Line="17" Column="16" />
-      <File FileName="Assets/Scripts/Enemies/ZombieMob.cs" Line="9" Column="37" />
-      <File FileName="Assets/Scripts/UI/HUD.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/UI/RestartButton.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Enemies/ShootingEnemy.cs" Line="12" Column="40" />
+      <File FileName="Assets/Sprites/PlayerStats.cs" Line="12" Column="25" />
+      <File FileName="Assets/Scripts/Character/Mei.cs" Line="35" Column="28" />
+      <File FileName="Assets/Scripts/Character/Weapons/Weapon.cs" Line="37" Column="2" />
+      <File FileName="Assets/Scripts/Character/Weapons/WeaponRange.cs" Line="21" Column="15" />
+      <File FileName="Assets/Scripts/Enemies/ShootingEnemy.cs" Line="60" Column="23" />
+      <File FileName="Assets/Scripts/Character/Health.cs" Line="45" Column="2" />
+      <File FileName="Assets/Scripts/Character/WeaponSelector.cs" Line="15" Column="36" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

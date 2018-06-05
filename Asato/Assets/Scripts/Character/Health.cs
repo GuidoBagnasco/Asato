@@ -23,14 +23,14 @@ public class Health : MonoBehaviour {
 
 
     protected virtual void OnParticleCollision(GameObject other) {
-        if (other.transform.tag == "EnemyWeapon")  {
-            Debug.Log("ouch");
+        if (other.transform.tag == "EnemyWeapon")
             Damage(other.GetComponentInParent<EnemyStats>().enemyDamage);
-        }
 		(HUD.Instance as HUD).UpdateText(HUD.TextType.HEALTH, value);
 
 		if (value <= 0) (HUD.Instance as HUD).GameOver();
 	}
+
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.tag == "EnemyWeapon")
@@ -41,6 +41,7 @@ public class Health : MonoBehaviour {
 
 		if (value <= 0) (HUD.Instance as HUD).GameOver();
     }
+
 
     public void addlife() {
         if (value < 100) {

@@ -18,7 +18,6 @@ public class ShootingEnemy : EnemyBase {
 
 	private void Update() {
         moveTimer += Time.deltaTime * Time.timeScale;
-        Debug.Log(moveStyle);
         switch (moveStyle) {
             case EnemyState.IDLE:
                 rigidBody.velocity = navigator.desiredVelocity;
@@ -55,9 +54,10 @@ public class ShootingEnemy : EnemyBase {
                     move();
                 break;
         }
-    } 
-    private void move()
-    {
+    }
+
+
+    private void move () {
         moveStyle = EnemyState.IDLE;
         moveTimer = 0;
       

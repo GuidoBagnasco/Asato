@@ -12,14 +12,13 @@ public class WeaponRange : Weapon {
     private bool isPlaying = false;
 	private HUD hud;
 
-    protected override void OnStart()
-    {
+    protected override void OnStart() {
 		hud = HUD.Instance as HUD;
         _balaE = GetComponentInChildren<ParticleSystem>();
     }
 
     public override void Attack () {
-        if (isPlaying) return;
+		if (isPlaying || ammo == 0) return;
 
 		PlayAnim (ANIM.Attack);
 
@@ -48,7 +47,7 @@ public class WeaponRange : Weapon {
 
 	public bool VaryAmmo (int amount) {
         ammo += amount;
-        //hud.UpdateText(HUD.TextType.AMMO, ammo);
+        hud.UpdateText(HUD.TextType.AMMO, ammo);
 		return ammo > 0;
 	}
 }

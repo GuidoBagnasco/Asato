@@ -9,7 +9,7 @@ public class PlayerStats : Singleton<PlayerStats> {
     private int score = 0;
 
 
-    public void restore() {
+    public void restore () {
         health.addlife();
         gun.VaryAmmo(70);
         Debug.Log("InRestore");
@@ -18,12 +18,11 @@ public class PlayerStats : Singleton<PlayerStats> {
 
     public void AddScore (int s) {
         score += s;
-			(HUD.Instance as HUD).UpdateText(HUD.TextType.SCORE, score);
+		(HUD.Instance as HUD).UpdateText(HUD.TextType.SCORE, score);
     }
 
 
-    public int GetScore()
-    {
+    public int GetScore() {
         return score;
     }
 }

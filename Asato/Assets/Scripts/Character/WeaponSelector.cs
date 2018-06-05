@@ -10,6 +10,7 @@ public class WeaponSelector : Singleton<WeaponSelector> {
 	private int current = 0;
 	private float sensibility = 1.0f;
 	private bool smoothOn = false;
+	private bool changing = false;
 
 
 	public void AddWeapon (Weapon w) {
@@ -19,7 +20,7 @@ public class WeaponSelector : Singleton<WeaponSelector> {
 
 	public void ChangeWeapons (float d) {
 		if (Mathf.Abs (d) > sensibility) {
-			if (!smoothOn) {
+			if (!smoothOn && !changing) {
 				StartCoroutine (SmoothChange (d));
 			}
 		}
@@ -46,10 +47,11 @@ public class WeaponSelector : Singleton<WeaponSelector> {
 
 
 	private IEnumerator SmoothChange (float d) {
-		smoothOn = true;
+		smoothOn = changing = true;
 		while (smoothOn) {
 			ChangeWeapon (d);
-			yield return new WaitForSeconds (0.7f);
+			yield return new WaitForSeconds (1f);
 		}
+		changing = false;
 	}
 }

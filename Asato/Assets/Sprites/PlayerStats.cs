@@ -12,7 +12,6 @@ public class PlayerStats : Singleton<PlayerStats> {
     public void restore () {
         health.addlife();
         gun.VaryAmmo(70);
-        Debug.Log("InRestore");
     }
 
 

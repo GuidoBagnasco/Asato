@@ -303,6 +303,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 198104680279143526, guid: 764521a923091474b8dc37816e0074ee,
+        type: 2}
+      propertyPath: InitialModule.startRotationX.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198104680279143526, guid: 764521a923091474b8dc37816e0074ee,
+        type: 2}
+      propertyPath: InitialModule.startRotationY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 764521a923091474b8dc37816e0074ee, type: 2}
   m_IsPrefabParent: 0

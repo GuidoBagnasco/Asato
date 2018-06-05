@@ -10,10 +10,9 @@ public class WeaponRange : Weapon {
     [HideInInspector]
     public int ammo = 100;
     private bool isPlaying = false;
-	private HUD hud;
+
 
     protected override void OnStart() {
-		hud = HUD.Instance as HUD;
         _balaE = GetComponentInChildren<ParticleSystem>();
     }
 
@@ -47,7 +46,7 @@ public class WeaponRange : Weapon {
 
 	public bool VaryAmmo (int amount) {
         ammo += amount;
-        hud.UpdateText(HUD.TextType.AMMO, ammo);
+		(HUD.Instance as HUD).UpdateText(HUD.TextType.AMMO, ammo);
 		return ammo > 0;
 	}
 }

@@ -25,7 +25,7 @@ public class Health : MonoBehaviour {
     protected virtual void OnParticleCollision(GameObject other) {
         if (other.transform.tag == "EnemyWeapon")
             Damage(other.GetComponentInParent<EnemyStats>().enemyDamage);
-		(HUD.Instance as HUD).UpdateText(HUD.TextType.HEALTH, value);
+		hud.UpdateText(HUD.TextType.HEALTH, value);
 
 		if (value <= 0) (HUD.Instance as HUD).GameOver();
 	}
@@ -34,10 +34,8 @@ public class Health : MonoBehaviour {
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.tag == "EnemyWeapon")
-        {
-            Damage(other.transform.parent.parent.parent.gameObject.GetComponent<EnemyStats>().enemyDamage); //NO ME ARREPIENTO DE NADA
-        }
-        		(HUD.Instance as HUD).UpdateText(HUD.TextType.HEALTH, value);
+			Damage(other.transform.parent.parent.GetComponentInParent<EnemyStats>().enemyDamage); //NO ME ARREPIENTO DE NADA
+		hud.UpdateText(HUD.TextType.HEALTH, value);
 
 		if (value <= 0) (HUD.Instance as HUD).GameOver();
     }
@@ -46,7 +44,7 @@ public class Health : MonoBehaviour {
     public void addlife() {
         if (value < 100) {
             value = Mathf.Clamp(value + 80, 0, HEALTH_MAX);
-			(HUD.Instance as HUD).UpdateText(HUD.TextType.HEALTH, value);
+			hud.UpdateText(HUD.TextType.HEALTH, value);
         }
 
     }

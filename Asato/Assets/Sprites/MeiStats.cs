@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStats : Singleton<PlayerStats> {
+public class MeiStats : Singleton<MeiStats> {
 
     public Health health;
     public WeaponRange gun;

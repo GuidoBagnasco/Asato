@@ -15,7 +15,7 @@ public class Totem : EnemyBase {
 
     public void RestoreStats() {
 		factory.InstantiateEnemy(type, player.transform, 1);
-		player.GetComponent<PlayerStats>().restore();
+		player.GetComponent<MeiStats>().restore();
     }
 
 

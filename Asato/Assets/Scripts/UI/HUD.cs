@@ -41,6 +41,6 @@ public class HUD : Singleton<HUD> {
 
     public void GameOver() {
         gameOverScreen.SetActive(true);
-		finalScoreText.text = (PlayerStats.Instance as PlayerStats).GetScore().ToString("00000");
+		finalScoreText.text = (MeiStats.Instance as MeiStats).GetScore().ToString("00000");
     }
 }

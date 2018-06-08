@@ -34,7 +34,7 @@ public class Health : MonoBehaviour {
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.tag == "EnemyWeapon")
-			Damage(other.transform.parent.parent.GetComponentInParent<EnemyStats>().enemyDamage); //NO ME ARREPIENTO DE NADA
+			Damage(other.transform.GetComponentInParent<EnemyStats>().enemyDamage); //NO ME ARREPIENTO DE NADA
 		hud.UpdateText(HUD.TextType.HEALTH, value);
 
 		if (value <= 0) (HUD.Instance as HUD).GameOver();

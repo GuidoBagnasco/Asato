@@ -11,6 +11,8 @@ public class InputManager : Singleton<InputManager> {
 	protected override void OnAwake () {
 #if UNITY_STANDALONE || UNITY_EDITOR
 		input = gameObject.AddComponent<InputKeyboard>();
+		Cursor.visible = false;
+		Cursor.lockState = CursorLockMode.Locked;
 #else
 		input = gameObject.AddComponent<InputMobile>();
 		Instantiate(mobileControls);

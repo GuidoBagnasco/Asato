@@ -15,7 +15,7 @@ public class Totem : EnemyBase {
 
     public void RestoreStats() {
 		factory.InstantiateEnemy(type, player.transform, 1);
-		player.GetComponent<MeiStats>().restore();
+		player.GetComponent<MeiStats> ().Restore ();
     }
 
 
@@ -24,7 +24,7 @@ public class Totem : EnemyBase {
 			factory.InstantiateEnemy(EnemyType.SHOOTING, player.transform, 1);
 			factory.InstantiateEnemy(EnemyType.MELEE, player.transform, 2);
             maxSpawn++;
-            yield return new WaitForSeconds(Random.Range(10.0f, 18.0f));
+            yield return new WaitForSeconds (Random.Range (10.0f, 18.0f));
         }   
     }
 }

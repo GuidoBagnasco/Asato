@@ -65,7 +65,7 @@ public class Mei : MonoBehaviour {
 
 	private void Attack () {
 		if (iManager.Attack ()) {
-			if (!InputMobile.AutoAttack)
+			if (InputMobile.AutoAttack)
 				(WeaponSelector.Instance as WeaponSelector).GetCurrent ().AutoAim ();
 			else
 				(WeaponSelector.Instance as WeaponSelector).GetCurrent ().Attack ();

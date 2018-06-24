@@ -17,4 +17,5 @@ public class Singleton<T> : MonoBehaviour {
 	}
 	
 	protected virtual void OnAwake () {	}
+
 }

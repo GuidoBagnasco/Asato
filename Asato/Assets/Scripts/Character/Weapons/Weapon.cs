@@ -64,13 +64,15 @@ public abstract class Weapon : MonoBehaviour {
 
 	private IEnumerator AutoAttack () {
 		attacking = true;
+        (AimManager.Instance as AimManager).StartFilling ();
 		while (locked) {
 			yield return new WaitForSeconds (fireRate);
 			Attack ();
 		}
 
 		attacking = false;
-		StopCoroutine (AutoAttack ());
+		(AimManager.Instance as AimManager).EndFilling();
+        StopCoroutine (AutoAttack ());
 	}
 
 

@@ -5,7 +5,7 @@ using UnityEngine;
 public class AimManager : Singleton<AimManager> {
 
 	private WeaponSelector wSelector;
-
+    public Aim aim;
 
 
 	private void Start () {
@@ -19,6 +19,12 @@ public class AimManager : Singleton<AimManager> {
 	public bool IsLocked () { return wSelector.GetCurrent ().IsLocked (); }
 
 
-	public float Speed () { return wSelector.GetCurrent ().getFireRate () / 100f; }
+	public float Speed () { return wSelector.GetCurrent ().getFireRate (); }
+
+
+    public void StartFilling() { aim.StartCoroutine (aim.Fill ()); }
+
+
+    public void EndFilling() { aim.EndFill (); }
 
 }

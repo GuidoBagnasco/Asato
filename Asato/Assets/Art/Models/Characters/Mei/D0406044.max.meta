@@ -1,26 +1,9 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: f03d0ec02e2a0408c9de14d34ccc6484
-timeCreated: 1524535553
-licenseType: Free
-ModelImporter:
-  serializedVersion: 22
-  fileIDToRecycleName: {}
-=======
-guid: fef92f1ab43de4317892cbd157bc33c7
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2100000: 'Material #450'
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: cadnav
-    7400000: Take 001
-    9500000: //RootNode
     2186277476908879412: ImportLogs
->>>>>>> Prototype
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -40,10 +23,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
-<<<<<<< HEAD
-=======
     importConstraints: 0
->>>>>>> Prototype
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5

@@ -6,7 +6,7 @@ public class WeaponRange : Weapon {
 
 	protected ANIM animations;
 	public Animator anim;
-    protected ParticleSystem _balaE;
+    protected ParticleSystem bullets;
     [HideInInspector]
     public int ammo = 100;
     private bool isPlaying = false;
@@ -19,7 +19,7 @@ public class WeaponRange : Weapon {
 
 
     protected override void OnStart() {
-        _balaE = GetComponentInChildren<ParticleSystem>();
+        bullets = GetComponentInChildren<ParticleSystem> ();
     }
 
 
@@ -34,7 +34,7 @@ public class WeaponRange : Weapon {
 
 
 	protected virtual void OnAttack () {
-        _balaE.Emit(1);
+        bullets.Emit (1);
 	}
 
 
@@ -51,9 +51,10 @@ public class WeaponRange : Weapon {
 		}
 	}
 
+
 	public bool VaryAmmo (int amount) {
         ammo += amount;
-		(HUD.Instance as HUD).UpdateText(HUD.TextType.AMMO, ammo);
+		(HUD.Instance as HUD).UpdateText (HUD.TextType.AMMO, ammo);
 		return ammo > 0;
 	}
 }

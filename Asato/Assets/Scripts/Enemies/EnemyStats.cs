@@ -17,7 +17,7 @@ public class EnemyStats : MonoBehaviour {
     }
 
 
-    public void healthLoss(int playerDamage) {
+    public void HealthLoss(int playerDamage) {
         enemyHealth -= playerDamage;
         if (enemyHealth <= 0)
 		    (MeiStats.Instance as MeiStats).AddScore (scorePoints);

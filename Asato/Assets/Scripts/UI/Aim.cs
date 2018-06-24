@@ -8,8 +8,7 @@ public class Aim : MonoBehaviour {
 	public UnityEngine.UI.Image flowerImage;
 	public Sprite[] designs;
 	private AimManager aimManager;
-
-	private bool filling = false;
+    private bool filling = false;
 
 
 
@@ -26,9 +25,6 @@ public class Aim : MonoBehaviour {
 
 	private void Update () {
 		SetDesign ();
-		#if !UNITY_IOS || UNITY_ANDROID
-		CheckLock ();
-		#endif
 	}
 
 
@@ -37,24 +33,32 @@ public class Aim : MonoBehaviour {
 	}
 
 
-	private void CheckLock () {
-		if (!filling && aimManager.IsLocked ()) {
-			StartCoroutine (FillFlower ());
-		} else {
-			flowerImage.fillAmount = 0.0f;
-			StopCoroutine (FillFlower ());
-		}
+	private void FillFlower () {
+        if (flowerImage.fillAmount >= 1f) ResetFillAmount ();
+        flowerImage.fillAmount = Mathf.Clamp01 (flowerImage.fillAmount + aimManager.Speed () * Time.smoothDeltaTime);
+		print (flowerImage.fillAmount);
 	}
 
 
-	private IEnumerator FillFlower () {
-		filling = true;
-		flowerImage.fillAmount = 0.0f;
-		do {
-			flowerImage.fillAmount = Mathf.Clamp01 (flowerImage.fillAmount + aimManager.Speed ());
-			yield return new WaitForSeconds (Time.deltaTime);
-			print (flowerImage.fillAmount);
-		} while (flowerImage.fillAmount < 1f);
-		filling = false;
-	}
+    public IEnumerator Fill () {
+        float animationTime = 0.0f;
+        filling = true;
+        do {
+            animationTime = Mathf.Clamp01 (animationTime + Time.deltaTime);
+            flowerImage.fillAmount = animationTime / aimManager.Speed();
+            yield return new WaitForEndOfFrame ();
+            if (animationTime >= aimManager.Speed()) animationTime = 0.0f;
+        } while (filling);
+        ResetFillAmount ();
+    }
+
+
+    public void EndFill () {
+        filling = false;
+    }
+
+
+    private void ResetFillAmount () {
+        flowerImage.fillAmount = 0.0f;
+    }
 }

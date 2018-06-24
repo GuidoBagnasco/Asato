@@ -11,6 +11,13 @@ public class WeaponSelector : Singleton<WeaponSelector> {
 	private float sensibility = 1.0f;
 	private bool smoothOn = false;
 	private bool changing = false;
+	public static Weapon.WeaponType CurrentType;
+
+
+
+	private void Start () {
+		CurrentType = weapons [current].type;
+	}
 
 
 	public void AddWeapon (Weapon w) {
@@ -43,6 +50,8 @@ public class WeaponSelector : Singleton<WeaponSelector> {
 		else if (d < -sensibility)
 			current = (--current) >= 0 ? current : weapons.Count - 1;
 		weapons[current].Sheathe (true);
+
+		CurrentType = weapons [current].type;
 	}
 
 

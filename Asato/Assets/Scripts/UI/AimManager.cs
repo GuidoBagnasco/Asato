@@ -19,6 +19,6 @@ public class AimManager : Singleton<AimManager> {
 	public bool IsLocked () { return wSelector.GetCurrent ().IsLocked (); }
 
 
-	public float Speed () { return wSelector.GetCurrent ().getFireRate () / 100.0f; }
+	public float Speed () { return wSelector.GetCurrent ().getFireRate () / 100f; }
 
 }

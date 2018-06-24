@@ -10,6 +10,10 @@ public class WeaponMelee : Weapon {
 
 
 
+	protected override void OnAwake () {
+		type = WeaponType.Melee;
+	}
+
 
 	public override void Attack () {
 		PlayAnim (ANIM.Attack);

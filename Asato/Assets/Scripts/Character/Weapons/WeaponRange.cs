@@ -12,9 +12,16 @@ public class WeaponRange : Weapon {
     private bool isPlaying = false;
 
 
+
+	protected override void OnAwake () {
+		type = WeaponType.Range;
+	}
+
+
     protected override void OnStart() {
         _balaE = GetComponentInChildren<ParticleSystem>();
     }
+
 
     public override void Attack () {
 		if (isPlaying || ammo == 0) return;

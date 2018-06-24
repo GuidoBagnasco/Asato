@@ -5,7 +5,7 @@ using UnityEngine;
 public class Aim : MonoBehaviour {
 
 	private UnityEngine.UI.Image aimImage;
-	private UnityEngine.UI.Image flowerImage;
+	public UnityEngine.UI.Image flowerImage;
 	public Sprite[] designs;
 	private AimManager aimManager;
 
@@ -15,7 +15,7 @@ public class Aim : MonoBehaviour {
 
 	private void Awake () {
 		aimImage = GetComponent<UnityEngine.UI.Image> ();
-		flowerImage = GetComponentInChildren<UnityEngine.UI.Image> ();
+		//flowerImage = gameObject.GetComponentInChildren<UnityEngine.UI.Image> ();
 	}
 
 
@@ -26,7 +26,7 @@ public class Aim : MonoBehaviour {
 
 	private void Update () {
 		SetDesign ();
-		#if UNITY_STANDALONE
+		#if !UNITY_IOS || UNITY_ANDROID
 		CheckLock ();
 		#endif
 	}
@@ -41,19 +41,20 @@ public class Aim : MonoBehaviour {
 		if (!filling && aimManager.IsLocked ()) {
 			StartCoroutine (FillFlower ());
 		} else {
+			flowerImage.fillAmount = 0.0f;
 			StopCoroutine (FillFlower ());
-			filling = false;
 		}
 	}
 
 
 	private IEnumerator FillFlower () {
-		yield return new WaitForFixedUpdate ();
 		filling = true;
 		flowerImage.fillAmount = 0.0f;
 		do {
-			flowerImage.fillAmount = Mathf.Clamp01 (flowerImage.fillAmount + aimManager.Speed () * Time.fixedDeltaTime);
-		} while (flowerImage.fillAmount < 1.0f);
+			flowerImage.fillAmount = Mathf.Clamp01 (flowerImage.fillAmount + aimManager.Speed ());
+			yield return new WaitForSeconds (Time.deltaTime);
+			print (flowerImage.fillAmount);
+		} while (flowerImage.fillAmount < 1f);
 		filling = false;
 	}
 }

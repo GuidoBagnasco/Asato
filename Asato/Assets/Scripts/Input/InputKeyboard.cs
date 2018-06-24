@@ -11,7 +11,7 @@ public class InputKeyboard : MonoBehaviour, IInput {
 	public float YSensitivity = 2.0f;
 
 
-	public bool Attack () {
+	public bool Attack () {return true;
 		return CrossPlatformInputManager.GetButtonDown ("Attack");
 	}
 

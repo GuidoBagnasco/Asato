@@ -8,12 +8,27 @@ public abstract class Weapon : MonoBehaviour {
 	public int range = 5;
 	private float fireRate = 0.8f;
 
-	private bool aiming = false;
+	private bool locked = false;
 	private bool attacking = false;
     
 	protected enum ANIM {
 		Attack = 1
 	};
+
+
+	public enum WeaponType {
+		Melee = 0,
+		Range = 1
+	};
+
+	public WeaponType type;
+
+
+	private void Awake () {
+		OnAwake ();
+	}
+		
+	protected abstract void OnAwake ();
 
 
 	private void Start () {
@@ -29,7 +44,7 @@ public abstract class Weapon : MonoBehaviour {
 	protected virtual void OnStart() { }
 
 
-	public void Sheathe(bool show) {
+	public void Sheathe (bool show) {
 		gameObject.SetActive (show);
 	}
 
@@ -39,15 +54,17 @@ public abstract class Weapon : MonoBehaviour {
 
 	public void AutoAim () {
 		RaycastHit hit;
-		aiming = Physics.Raycast (transform.position, transform.TransformDirection (Vector3.forward), out hit, range, 1 << 8);
-		if (aiming && !attacking) 
-			StartCoroutine (AutoAttack ());
+		locked = Physics.Raycast (transform.position, transform.parent.forward, out hit, range, 1 << 8);
+		if (locked && !attacking) StartCoroutine (AutoAttack ());
 	}
+
+
+	public bool IsLocked () { return locked; }
 
 
 	private IEnumerator AutoAttack () {
 		attacking = true;
-		while (aiming) {
+		while (locked) {
 			yield return new WaitForSeconds (fireRate);
 			Attack ();
 		}
@@ -55,4 +72,8 @@ public abstract class Weapon : MonoBehaviour {
 		attacking = false;
 		StopCoroutine (AutoAttack ());
 	}
+
+
+	public float getFireRate () { return fireRate; }
+
 }

@@ -8,11 +8,13 @@ public class Mei : MonoBehaviour {
 	private InputManager iManager = null;
 	private Transform cam = null;
 	private Rigidbody rBody = null;
+	public GameObject arm;
 	float angle  = 0f;
 
 	private bool isGrounded = true;
 	public float groundSearchRange = 5.0f;
 	private int layerMask = 1 << 10 | 1 << 11;
+
 
 
 	private void Start () {
@@ -63,7 +65,7 @@ public class Mei : MonoBehaviour {
 
 	private void Attack () {
 		if (iManager.Attack ()) {
-			if (InputMobile.AutoAttack)
+			if (!InputMobile.AutoAttack)
 				(WeaponSelector.Instance as WeaponSelector).GetCurrent ().AutoAim ();
 			else
 				(WeaponSelector.Instance as WeaponSelector).GetCurrent ().Attack ();

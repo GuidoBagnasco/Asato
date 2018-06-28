@@ -11,14 +11,14 @@ public class MeiStats : Singleton<MeiStats> {
 
 
 	public void Restore () {
-        health.addlife ();
+        health.Damage (-80);
         gun.VaryAmmo (70);
     }
 
 
     public void AddScore (int s) {
         score += s;
-		(HUD.Instance as HUD).UpdateText (HUD.TextType.SCORE, score);
+		(HUD.Instance as HUD).UpdateElement (HUD.ElementType.SCORE, score);
     }
 
 

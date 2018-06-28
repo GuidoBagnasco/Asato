@@ -16,37 +16,27 @@ public class Health : MonoBehaviour {
 
     public void Damage (int amount) {
 		value = Mathf.Clamp (value - amount, 0, HEALTH_MAX);
-        hud.UpdateText(HUD.TextType.HEALTH, value);
+        hud.UpdateElement(HUD.ElementType.HEALTH, value);
 
-        if (value <= 0) hud.GameOver();
+        if (value <= 0 && !GameController.Over) (GameController.Instance as GameController).GameOver();
 	}
 
 
     protected virtual void OnParticleCollision(GameObject other) {
         if (other.transform.tag == "EnemyWeapon")
             Damage(other.GetComponentInParent<EnemyStats>().enemyDamage);
-		hud.UpdateText(HUD.TextType.HEALTH, value);
+		hud.UpdateElement(HUD.ElementType.HEALTH, value);
 
-		if (value <= 0) (HUD.Instance as HUD).GameOver();
+        if (value <= 0) (GameController.Instance as GameController).GameOver();
 	}
 
 
-    private void OnTriggerEnter(Collider other)
-    {
+    private void OnTriggerEnter(Collider other) {
         if (other.transform.tag == "EnemyWeapon")
 			Damage(other.transform.GetComponentInParent<EnemyStats>().enemyDamage); //NO ME ARREPIENTO DE NADA
-		hud.UpdateText(HUD.TextType.HEALTH, value);
+		hud.UpdateElement(HUD.ElementType.HEALTH, value);
 
-		if (value <= 0) (HUD.Instance as HUD).GameOver();
-    }
-
-
-    public void addlife() {
-        if (value < 100) {
-            value = Mathf.Clamp(value + 80, 0, HEALTH_MAX);
-			hud.UpdateText(HUD.TextType.HEALTH, value);
-        }
-
+        if (value <= 0) (GameController.Instance as GameController).GameOver();
     }
 
 }

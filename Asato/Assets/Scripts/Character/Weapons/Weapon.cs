@@ -44,6 +44,12 @@ public abstract class Weapon : MonoBehaviour {
 	protected virtual void OnStart() { }
 
 
+    private void Update() {
+        RaycastHit hit;
+        locked = Physics.Raycast(transform.position, transform.parent.forward, out hit, range, 1 << 8);
+    }
+
+
 	public void Sheathe (bool show) {
 		gameObject.SetActive (show);
 	}
@@ -53,8 +59,6 @@ public abstract class Weapon : MonoBehaviour {
 
 
 	public void AutoAim () {
-		RaycastHit hit;
-		locked = Physics.Raycast (transform.position, transform.parent.forward, out hit, range, 1 << 8);
 		if (locked && !attacking) StartCoroutine (AutoAttack ());
 	}
 

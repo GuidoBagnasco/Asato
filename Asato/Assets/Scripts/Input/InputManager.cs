@@ -9,7 +9,7 @@ public class InputManager : Singleton<InputManager> {
 
 
 	protected override void OnAwake () {
-#if UNITY_STANDALONE || UNITY_EDITOR
+#if false//UNITY_STANDALONE || UNITY_EDITOR
 		input = gameObject.AddComponent<InputKeyboard>();
 		Cursor.visible = false;
 		Cursor.lockState = CursorLockMode.Locked;
@@ -27,4 +27,11 @@ public class InputManager : Singleton<InputManager> {
 	public Vector2 Rotate () { return input.Rotate (); }
 
 	public float ChangeWeapon () { return input.ChangeWeapon (); }
+
+    public void ShowPointer() {
+#if UNITY_STANDALONE || UNITY_EDITOR
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+#endif
+    }
 }

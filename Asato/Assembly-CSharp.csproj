@@ -73,6 +73,7 @@
     <Compile Include="Assets\Scripts\Enemies\ZombieMob.cs" />
     <Compile Include="Assets\Scripts\EnemyPool.cs" />
     <Compile Include="Assets\Scripts\Extras\Earth.cs" />
+    <Compile Include="Assets\Scripts\Extras\GameController.cs" />
     <Compile Include="Assets\Scripts\Input\IInput.cs" />
     <Compile Include="Assets\Scripts\Input\InputKeyboard.cs" />
     <Compile Include="Assets\Scripts\Input\InputManager.cs" />
@@ -87,11 +88,11 @@
     <Compile Include="Assets\Scripts\UI\Aim.cs" />
     <Compile Include="Assets\Scripts\UI\AimManager.cs" />
     <Compile Include="Assets\Scripts\UI\GUICamera.cs" />
+    <Compile Include="Assets\Scripts\UI\HiScore.cs" />
     <Compile Include="Assets\Scripts\UI\HUD.cs" />
     <Compile Include="Assets\Scripts\UI\RestartButton.cs" />
-    <Compile Include="Assets\SMC Pack 1\Demo\DemoAssets\V_SMC_Camera.cs" />
-    <Compile Include="Assets\SMC Pack 1\Demo\DemoAssets\V_SMC_Handler.cs" />
-    <Compile Include="Assets\SMC Pack 1\Demo\DemoAssets\V_Text.cs" />
+    <None Include="Assets\Fonts\airstrike\airstrike.txt" />
+    <None Include="Assets\Fonts\space_age\Space.txt" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>/Users/guidobagnasco/Documents/GitHub/Asato/Asato/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

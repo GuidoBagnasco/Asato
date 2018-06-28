@@ -8,4 +8,5 @@ public class RestartButton : MonoBehaviour {
 	public void RestartGame () {
 		UnityEngine.SceneManagement.SceneManager.LoadScene("Test");
 	}
+
 }

@@ -10,6 +10,7 @@ public class Aim : MonoBehaviour {
 	private AimManager aimManager;
     private bool filling = false;
 
+    private Color lockingColor = new Color(0.0f, 0.7921f, 0.5804f, 1.0f);
 
 
 	private void Awake () {
@@ -25,6 +26,7 @@ public class Aim : MonoBehaviour {
 
 	private void Update () {
 		SetDesign ();
+        SetColor ();
 	}
 
 
@@ -33,22 +35,28 @@ public class Aim : MonoBehaviour {
 	}
 
 
+    private void SetColor () {
+        aimImage.color = aimManager.IsLocked() ? lockingColor : Color.white;
+    }
+
+
 	private void FillFlower () {
         if (flowerImage.fillAmount >= 1f) ResetFillAmount ();
         flowerImage.fillAmount = Mathf.Clamp01 (flowerImage.fillAmount + aimManager.Speed () * Time.smoothDeltaTime);
-		print (flowerImage.fillAmount);
 	}
 
 
     public IEnumerator Fill () {
         float animationTime = 0.0f;
         filling = true;
+
         do {
             animationTime = Mathf.Clamp01 (animationTime + Time.deltaTime);
             flowerImage.fillAmount = animationTime / aimManager.Speed();
             yield return new WaitForEndOfFrame ();
             if (animationTime >= aimManager.Speed()) animationTime = 0.0f;
         } while (filling);
+
         ResetFillAmount ();
     }
 

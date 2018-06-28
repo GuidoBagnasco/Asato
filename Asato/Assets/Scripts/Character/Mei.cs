@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Mei : MonoBehaviour {
 
-
 	private InputManager iManager = null;
 	private Transform cam = null;
 	private Rigidbody rBody = null;
@@ -25,6 +24,7 @@ public class Mei : MonoBehaviour {
 	
 
 	void Update () {
+        if (GameController.Over) this.enabled = false;
 		Rotate ();
 		Move ();
 		Jump ();

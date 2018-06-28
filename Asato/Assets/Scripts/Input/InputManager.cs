@@ -11,8 +11,7 @@ public class InputManager : Singleton<InputManager> {
 	protected override void OnAwake () {
 #if UNITY_STANDALONE || UNITY_EDITOR
 		input = gameObject.AddComponent<InputKeyboard>();
-		Cursor.visible = false;
-		Cursor.lockState = CursorLockMode.Locked;
+        ShowPointer (false);
 #else
 		input = gameObject.AddComponent<InputMobile>();
 		Instantiate(mobileControls);
@@ -28,10 +27,9 @@ public class InputManager : Singleton<InputManager> {
 
 	public float ChangeWeapon () { return input.ChangeWeapon (); }
 
-    public void ShowPointer() {
-#if UNITY_STANDALONE || UNITY_EDITOR
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
-#endif
+    public void ShowPointer (bool b) {
+        Cursor.visible = b;
+        Cursor.lockState = b ? CursorLockMode.None : CursorLockMode.Locked;
+
     }
 }

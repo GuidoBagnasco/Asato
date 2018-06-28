@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class HiScore : MonoBehaviour {
 
-    public UnityEngine.UI.Text hiScore;
 
 
     private void Start () {
-        hiScore.text = "HiScore " + Get ().ToString ("00000");
+        GetComponent<UnityEngine.UI.Text>().text = "HiScore\n" + Get ().ToString ("00000");
     }
 
 

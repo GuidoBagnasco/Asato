@@ -31,7 +31,7 @@ public class HUD : Singleton<HUD> {
                 ammoText.text = value.ToString();
                 break;
             case ElementType.SCORE:
-                scoreText.text = value.ToString("00000");
+                scoreText.text = value.ToString ("00000");
                 break;
         }
     }
@@ -40,8 +40,8 @@ public class HUD : Singleton<HUD> {
     public void Show () {
         gameOverScreen.SetActive (true);
         int score = (MeiStats.Instance as MeiStats).GetScore();
-		finalScoreText.text = "Score " + score.ToString ("00000");
-        hiScoreText.text = "Hi-Score " + HiScore.Get (score).ToString ("00000");
+        finalScoreText.text = "Score\n" + score.ToString ("00000");
+        hiScoreText.text = "Hi-Score\n" + HiScore.Get (score).ToString ("00000");
         gameObject.SetActive (false);
     }
 

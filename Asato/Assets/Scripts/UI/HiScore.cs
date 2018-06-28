@@ -8,7 +8,7 @@ public class HiScore : MonoBehaviour {
 
 
     private void Start () {
-        hiScore.text = "HiScore " + Get ();
+        hiScore.text = "HiScore " + Get ().ToString ("00000");
     }
 
 

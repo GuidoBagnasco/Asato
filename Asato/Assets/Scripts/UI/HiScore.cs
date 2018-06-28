@@ -2,8 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HiScore {
-    
+public class HiScore : MonoBehaviour {
+
+    public UnityEngine.UI.Text hiScore;
+
+
+    private void Start () {
+        hiScore.text = "HiScore " + Get ();
+    }
+
 
     public static int Get (int score = 0) {
 		string key = "HiScore";

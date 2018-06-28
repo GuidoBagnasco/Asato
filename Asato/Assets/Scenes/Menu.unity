@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 552037520}
   - component: {fileID: 552037522}
   - component: {fileID: 552037521}
+  - component: {fileID: 552037523}
   m_Layer: 5
   m_Name: HiScoreText
   m_TagString: Untagged
@@ -191,6 +192,18 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 552037519}
+--- !u!114 &552037523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 552037519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c82020be0b8a401abb0137421390a65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hiScore: {fileID: 552037521}
 --- !u!1 &823257367
 GameObject:
   m_ObjectHideFlags: 0

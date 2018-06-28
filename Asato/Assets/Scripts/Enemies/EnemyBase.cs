@@ -23,6 +23,7 @@ public class EnemyBase : MonoBehaviour {
     protected Spawner factory;
     protected List<GameObject> ownList = null;
     protected EnemyType type;
+    public ParticleSystem blood;
 
 
 	protected void Start () {
@@ -42,6 +43,7 @@ public class EnemyBase : MonoBehaviour {
         if (other.transform.tag == "PlayerWeapon") {
             Weapon w = other.GetComponentInParent<Weapon>();
             if (w != null) stats.HealthLoss(w.dmg);
+            Emit();
             Recycle();
         }
     }
@@ -52,6 +54,7 @@ public class EnemyBase : MonoBehaviour {
         if (other.transform.tag == "PlayerWeapon") {
             Weapon w = other.GetComponent<Weapon>();
             if (w != null) stats.HealthLoss(w.dmg);
+            Emit();
             Recycle();
         }
     }
@@ -71,6 +74,16 @@ public class EnemyBase : MonoBehaviour {
     protected virtual void Recycle () {
         if (stats.enemyHealth < 1)
             factory.ReturnToList(gameObject, type);      
+    }
+
+    protected virtual void Emit()
+    {
+        if (type == 0)
+        {
+            blood.transform.position = new Vector3(gameObject.transform.position.x, blood.transform.position.y, gameObject.transform.position.z);
+        }
+
+        blood.Emit(10);
     }
 
     public void addList (List<GameObject> pooList){

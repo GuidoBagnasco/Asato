@@ -34,7 +34,9 @@ public class Health : MonoBehaviour {
     private void OnTriggerEnter(Collider other) {
         if (other.transform.tag == "EnemyWeapon")
 			Damage(other.transform.GetComponentInParent<EnemyStats>().enemyDamage); //NO ME ARREPIENTO DE NADA
-		hud.UpdateElement(HUD.ElementType.HEALTH, value);
+        if (other.transform.tag == "Loot")
+
+        hud.UpdateElement(HUD.ElementType.HEALTH, value);
 
         if (value <= 0) (GameController.Instance as GameController).GameOver();
     }

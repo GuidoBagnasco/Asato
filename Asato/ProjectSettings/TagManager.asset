@@ -8,6 +8,8 @@ TagManager:
   - PlayerWeapon
   - Joystick
   - FireButton
+  - Fire
+  - Loot
   layers:
   - Default
   - TransparentFX

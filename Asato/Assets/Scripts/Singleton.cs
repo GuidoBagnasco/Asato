@@ -18,4 +18,9 @@ public class Singleton<T> : MonoBehaviour {
 	
 	protected virtual void OnAwake () {	}
 
+
+    private void OnDestroy () {
+        Instance = null;
+    }
+
 }

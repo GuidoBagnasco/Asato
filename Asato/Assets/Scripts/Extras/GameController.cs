@@ -7,14 +7,16 @@ public class GameController : Singleton<GameController> {
     public static bool Over = false;
 
 
-	protected override void OnAwake() {
+	protected override void OnAwake () {
         Over = false;
 	}
-	
 
-	public void GameOver () {
+
+    public void GameOver () {
         Over = true;
-        (HUD.Instance as HUD).Show ();
-        (InputManager.Instance as InputManager).ShowPointer ();
-	}
+        (HUD.Instance as HUD).Show();
+#if UNITY_STANDALONE || UNITY_EDITOR
+        (InputManager.Instance as InputManager).ShowPointer (true);
+#endif
+    }
 }

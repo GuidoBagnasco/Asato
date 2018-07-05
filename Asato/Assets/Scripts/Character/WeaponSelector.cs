@@ -8,7 +8,7 @@ public class WeaponSelector : Singleton<WeaponSelector> {
 
 	public List<Weapon> weapons = new List<Weapon>();
 	private int current = 0;
-	private float sensibility = 1.0f;
+	private float sensibility = 0.3f;
 	private bool smoothOn = false;
 	private bool changing = false;
 	public static Weapon.WeaponType CurrentType;
@@ -59,7 +59,7 @@ public class WeaponSelector : Singleton<WeaponSelector> {
 		smoothOn = changing = true;
 		while (smoothOn) {
 			ChangeWeapon (d);
-			yield return new WaitForSeconds (1f);
+			yield return new WaitForSeconds (0.4f);
 		}
 		changing = false;
 	}

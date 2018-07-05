@@ -21,7 +21,7 @@ public class Stick : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
 
 
 	private void Awake () {
-		defaultPos = img.localPosition;
+		defaultPos = img.position;
 		padPos = Vector2.zero;
 	}
 
@@ -41,7 +41,7 @@ public class Stick : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
 
 
 	public void OnEndDrag(PointerEventData eventData) {
-		img.localPosition = defaultPos;
+		img.position = defaultPos;
 		touchId = -1;
 		moving = false;
 		padPos = Vector2.zero;
@@ -53,7 +53,7 @@ public class Stick : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
 		if (enableAxisX) padPos.x = worldPoint.x;
 		if (enableAxisY) padPos.y = worldPoint.y;
 
-		img.localPosition = Vector3.ClampMagnitude (padPos, offset);
+        img.position = Vector3.ClampMagnitude(padPos, offset);
 
 		if (moving)
 			padPos.Normalize ();

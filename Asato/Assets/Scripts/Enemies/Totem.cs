@@ -27,9 +27,10 @@ public class Totem : EnemyBase {
 
 
     public IEnumerator InstantiateEnemy()  {
-        while (maxSpawn <= 10) {
+        while (maxSpawn <= 5) {
 			factory.InstantiateEnemy(EnemyType.SHOOTING,transform, 1);
 			factory.InstantiateEnemy(EnemyType.MELEE, transform, 2);
+            factory.InstantiateEnemy(EnemyType.CHARGER, transform, 1);
             maxSpawn++;
             yield return new WaitForSeconds (Random.Range (10.0f, 18.0f));
         }   

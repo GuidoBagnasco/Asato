@@ -126,7 +126,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4215225844580252, guid: 764521a923091474b8dc37816e0074ee, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.0000009536743
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4215225844580252, guid: 764521a923091474b8dc37816e0074ee, type: 2}
       propertyPath: m_LocalPosition.z
@@ -270,6 +270,17 @@ Prefab:
       propertyPath: TotemPosition.Array.data[3]
       value: 
       objectReference: {fileID: 2037849522}
+    - target: {fileID: 114059103651123376, guid: c76fd0fcea081479390b42579197414c,
+        type: 2}
+      propertyPath: EnemyC
+      value: 
+      objectReference: {fileID: 1987427354685828, guid: a88c94190aa908e4ba0dfbf42b7b00fa,
+        type: 2}
+    - target: {fileID: 114059103651123376, guid: c76fd0fcea081479390b42579197414c,
+        type: 2}
+      propertyPath: maxPoolEnemyC
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c76fd0fcea081479390b42579197414c, type: 2}
   m_IsPrefabParent: 0

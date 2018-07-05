@@ -11,7 +11,8 @@ public enum EnemyState {
 public enum EnemyType {
 	TOTEM,
 	MELEE,
-	SHOOTING
+	SHOOTING,
+    CHARGER
 }
 
 public class EnemyBase : MonoBehaviour {

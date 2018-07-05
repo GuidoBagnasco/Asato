@@ -9,7 +9,7 @@ public class InputManager : Singleton<InputManager> {
 
 
 	protected override void OnAwake () {
-#if false//UNITY_STANDALONE || UNITY_EDITOR
+#if UNITY_STANDALONE
 		input = gameObject.AddComponent<InputKeyboard>();
         ShowPointer (false);
 #else

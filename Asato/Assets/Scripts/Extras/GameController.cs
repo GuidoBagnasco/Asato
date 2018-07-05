@@ -15,7 +15,7 @@ public class GameController : Singleton<GameController> {
     public void GameOver () {
         Over = true;
         (HUD.Instance as HUD).Show();
-#if UNITY_STANDALONE || UNITY_EDITOR
+#if UNITY_STANDALONE
         (InputManager.Instance as InputManager).ShowPointer (true);
 #endif
     }

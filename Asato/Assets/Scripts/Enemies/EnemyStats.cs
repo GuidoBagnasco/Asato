@@ -8,6 +8,7 @@ public class EnemyStats : MonoBehaviour {
     public int enemyDamage;
     public int scorePoints;
 	private int baseHealth;
+    private EnemyBase enemy;
 
     private void Awake() {
         if (enemyHealth <= 0) Debug.LogWarning("Enemy " + name + " health equal or below 0!!!");
@@ -17,10 +18,17 @@ public class EnemyStats : MonoBehaviour {
     }
 
 
+    private void Start () {
+        enemy = GetComponent<EnemyBase>();
+    }
+
+
     public void HealthLoss(int playerDamage) {
         enemyHealth -= playerDamage;
-        if (enemyHealth <= 0)
-		    (MeiStats.Instance as MeiStats).AddScore (scorePoints);
+        if (enemyHealth <= 0) {
+            (MeiStats.Instance as MeiStats).AddScore(scorePoints);
+            enemy.Recycle();
+        }
     }
 
 	private void OnDisable() {

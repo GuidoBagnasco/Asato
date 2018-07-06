@@ -45,7 +45,6 @@ public class EnemyBase : MonoBehaviour {
             Weapon w = other.GetComponentInParent<Weapon>();
             if (w != null) stats.HealthLoss(w.dmg);
             Emit();
-            Recycle();
         }
     }
 
@@ -56,7 +55,6 @@ public class EnemyBase : MonoBehaviour {
             Weapon w = other.GetComponent<Weapon>();
             if (w != null) stats.HealthLoss(w.dmg);
             Emit();
-            Recycle();
         }
     }
 
@@ -72,7 +70,7 @@ public class EnemyBase : MonoBehaviour {
     }
 
 
-    protected virtual void Recycle () {
+    public virtual void Recycle () {
         if (stats.enemyHealth < 1)
             factory.ReturnToList(gameObject, type);      
     }
@@ -90,4 +88,5 @@ public class EnemyBase : MonoBehaviour {
     public void addList (List<GameObject> pooList){
         ownList = pooList;
     }
+
 }

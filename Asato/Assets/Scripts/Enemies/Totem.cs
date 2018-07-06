@@ -16,7 +16,13 @@ public class Totem : EnemyBase {
 
 
     public void RestoreStats() {
-		factory.InstantiateEnemy(type, player.transform, 1);
+        //Collider[] hitColliders = Physics.OverlapSphere(transform.position, 10, 1<<8);
+        //int i = 0;
+        //foreach (Collider enemy in hitColliders)
+        //{
+        //    enemy.GetComponent<EnemyStats>().HealthLoss(100);
+        //}
+        factory.InstantiateEnemy(type, player.transform, 1);
         loot.transform.position = new Vector3(transform.position.x, loot.transform.position.y, transform.position.z);
         loot.GetComponent<Collider>().enabled = true;
         foreach (Renderer r in loot.GetComponentsInChildren(typeof(Renderer)))

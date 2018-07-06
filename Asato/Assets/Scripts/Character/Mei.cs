@@ -36,7 +36,7 @@ public class Mei : MonoBehaviour {
 
 	public float minimumY = -90f;
 	public float maximumY = 60f;
-	private float sensitivity = 130F;
+	private float sensitivity = 130f;
 
 	private void Rotate () {
 		Vector2 rot = iManager.Rotate ();

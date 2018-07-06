@@ -67,7 +67,7 @@ public class Charger : EnemyBase
                     case ChargeStates.Rage:
                         animator.SetBool("attack", true);
                         transform.Translate(Vector3.forward * speed * Time.deltaTime);
-                        speed += 0.4f;
+                        speed += 0.5f;
                         if (stunTime > 1)
                         {
                             speed = 0;

@@ -7,7 +7,7 @@ public class HiScore : MonoBehaviour {
 
 
     private void Start () {
-        GetComponent<UnityEngine.UI.Text>().text = "HiScore\n" + Get ().ToString ("00000");
+        GetComponent<UnityEngine.UI.Text>().text = "Hi-Score\n" + Get ().ToString ("00000");
     }
 
 

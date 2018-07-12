@@ -56,7 +56,7 @@ public class Stick : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
 
         if (moving) {
             padPos = padPos - (Vector2)defaultPos;
-            padPos = Vector3.ClampMagnitude(padPos, offset) * 0.03f;
+            padPos = Vector3.ClampMagnitude(padPos, offset) * 0.02f;
         }
 	}
 }

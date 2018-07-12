@@ -59,7 +59,7 @@ public class WeaponSelector : Singleton<WeaponSelector> {
 		smoothOn = changing = true;
 		while (smoothOn) {
 			ChangeWeapon (d);
-			yield return new WaitForSeconds (0.2f);
+			yield return new WaitForSeconds (0.4f);
 		}
 		changing = false;
 	}

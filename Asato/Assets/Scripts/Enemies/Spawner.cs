@@ -26,12 +26,16 @@ public class Spawner : MonoBehaviour {
     }
 
 
-    public void InstantiateEnemy(EnemyType type, Transform playerPos, int amountToSpawn) {
+    public void InstantiateEnemy(EnemyType type, Transform origPos, int amountToSpawn) {
         for (int i = 0; i < amountToSpawn; i++) {
             switch (type)  {
 				case EnemyType.TOTEM:
 					GameObject totem = totemSpawn.getPooledEnemy();
-                    totem.transform.position = TotemPosition[Random.Range(0, 3)].position;
+                    do
+                    {
+                        totem.transform.position = TotemPosition[Random.Range(0, 3)].position;
+                    } while (totem.transform.position == origPos.position);
+                     
 					
 					totem.SetActive(true);
 					break;
@@ -40,7 +44,7 @@ public class Spawner : MonoBehaviour {
                     GameObject mob = melee.getPooledEnemy();
                     Vector3 mobPos = Random.insideUnitSphere * 50;
                     mobPos.y = 0;
-                    mob.transform.position = playerPos.position + mobPos;
+                    mob.transform.position = origPos.position + mobPos;
 
                     mob.SetActive(true);
                     break;
@@ -49,7 +53,7 @@ public class Spawner : MonoBehaviour {
 					GameObject shooter = shooty.getPooledEnemy();
 					Vector3 shooterPos = Random.insideUnitSphere * 50;
 					shooterPos.y = 0;
-					shooter.transform.position = playerPos.position + shooterPos;
+					shooter.transform.position = origPos.position + shooterPos;
 					
 					shooter.SetActive(true);
 					break;
@@ -59,7 +63,7 @@ public class Spawner : MonoBehaviour {
                     GameObject chargerE = charger.getPooledEnemy();
                     Vector3 chargerPos = Random.insideUnitSphere * 50;
                     chargerPos.y = 0;
-                    chargerE.transform.position = playerPos.position + chargerPos;
+                    chargerE.transform.position = origPos.position + chargerPos;
 
                     chargerE.SetActive(true);
                     break;

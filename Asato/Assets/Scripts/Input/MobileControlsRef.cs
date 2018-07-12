@@ -6,6 +6,6 @@ public class MobileControlsRef : Singleton<MobileControlsRef> {
 
 	public Stick movStick;
 	public Stick rotStick;
-	public Stick chwStick;
+    public ChangeWeaponButton chwStick;
 
 }

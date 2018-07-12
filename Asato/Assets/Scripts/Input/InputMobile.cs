@@ -31,6 +31,6 @@ public class InputMobile : MonoBehaviour, IInput {
 
 
 	public float ChangeWeapon () {
-		return joyCon.chwStick.padPos.x * 10f;
+        return joyCon.chwStick.IsClicked ();
 	}
 }

@@ -7,8 +7,8 @@ using UnityStandardAssets.Characters.FirstPerson;
 public class InputKeyboard : MonoBehaviour, IInput {
 
 	private MouseLook m_MouseLook;
-	public float XSensitivity = 2.0f;
-	public float YSensitivity = 2.0f;
+	public float XSensitivity = 2.3f;
+	public float YSensitivity = 2.3f;
 
 
 	public bool Attack () {

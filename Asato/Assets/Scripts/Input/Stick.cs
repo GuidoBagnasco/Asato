@@ -9,7 +9,7 @@ public class Stick : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
 	private int touchId = -1;
 	private Vector3 defaultPos;
 	public RectTransform img = null;
-	private float offset = 150f;
+	private float offset = 30f;
 
 	[HideInInspector]
 	public Vector2 padPos;
@@ -50,14 +50,13 @@ public class Stick : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
 
 	private void UpdatePosition (Vector2 pos) {
         Vector3 worldPoint = GUICamera.ScreenToWorldPoint (pos);
-        //padPos = pos;
 		if (enableAxisX) padPos.x = worldPoint.x;
 		if (enableAxisY) padPos.y = worldPoint.y;
-        img.position = Vector3.ClampMagnitude(padPos, offset);
+        img.position = defaultPos + Vector3.ClampMagnitude(padPos - (Vector2)defaultPos, offset);
 
         if (moving) {
             padPos = padPos - (Vector2)defaultPos;
-            padPos.Normalize();
+            padPos = Vector3.ClampMagnitude(padPos, offset) * 0.03f;
         }
 	}
 }

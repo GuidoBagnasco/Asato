@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 224784419469704912}
   - component: {fileID: 222548936679873360}
   - component: {fileID: 114764077570828134}
-  - component: {fileID: 114404375393609970}
+  - component: {fileID: 114751205115815638}
   m_Layer: 5
   m_Name: ChangeWeaponStick
   m_TagString: Untagged
@@ -279,7 +279,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movStick: {fileID: 114550759129425548}
   rotStick: {fileID: 114388143504050704}
-  chwStick: {fileID: 114404375393609970}
+  chwStick: {fileID: 114751205115815638}
 --- !u!114 &114106070798259266
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -397,21 +397,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114404375393609970
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1744346965596206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3835c502e7ca4b1da08ff09b76936d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  img: {fileID: 224037729046301104}
-  padPos: {x: 0, y: 0}
-  enableAxisX: 1
-  enableAxisY: 0
 --- !u!114 &114550759129425548
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -427,6 +412,17 @@ MonoBehaviour:
   padPos: {x: 0, y: 0}
   enableAxisX: 1
   enableAxisY: 1
+--- !u!114 &114751205115815638
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1744346965596206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d7fa96edd8854e648ffe890d4119c10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114764077570828134
 MonoBehaviour:
   m_ObjectHideFlags: 1

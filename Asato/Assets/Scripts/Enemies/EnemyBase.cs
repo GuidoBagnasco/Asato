@@ -25,6 +25,9 @@ public class EnemyBase : MonoBehaviour {
     protected List<GameObject> ownList = null;
     protected EnemyType type;
     public ParticleSystem blood;
+    public AudioSource Death;
+    public AudioSource Attack;
+    public AudioSource Hit;
 
 
 	protected void Start () {
@@ -44,6 +47,7 @@ public class EnemyBase : MonoBehaviour {
         if (other.transform.tag == "PlayerWeapon") {
             Weapon w = other.GetComponentInParent<Weapon>();
             if (w != null) stats.HealthLoss(w.dmg);
+            Hit.Play();
             Emit();
         }
     }
@@ -54,6 +58,7 @@ public class EnemyBase : MonoBehaviour {
         if (other.transform.tag == "PlayerWeapon") {
             Weapon w = other.GetComponent<Weapon>();
             if (w != null) stats.HealthLoss(w.dmg);
+            Hit.Play();
             Emit();
         }
     }
@@ -71,8 +76,12 @@ public class EnemyBase : MonoBehaviour {
 
 
     public virtual void Recycle () {
+        AudioSource.PlayClipAtPoint(Death.clip, transform.position, 1);
         if (stats.enemyHealth < 1)
-            factory.ReturnToList(gameObject, type);      
+        {
+           
+            factory.ReturnToList(gameObject, type);
+        }
     }
 
     protected virtual void Emit()

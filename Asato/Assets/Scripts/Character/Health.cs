@@ -7,9 +7,10 @@ public class Health : MonoBehaviour {
 	private static int HEALTH_MAX = 100;
 	private int value = HEALTH_MAX;
 	private HUD hud = null;
+    public AudioSource hit;
+    public AudioSource death;
 
-
-	private void Start () {
+    private void Start () {
 		hud = HUD.Instance as HUD;
 	}
 
@@ -24,21 +25,36 @@ public class Health : MonoBehaviour {
 
     protected virtual void OnParticleCollision(GameObject other) {
         if (other.transform.tag == "EnemyWeapon")
+        {
+            hit.Play();
             Damage(other.GetComponentInParent<EnemyStats>().enemyDamage);
-		hud.UpdateElement(HUD.ElementType.HEALTH, value);
+            hud.UpdateElement(HUD.ElementType.HEALTH, value);
+        }
 
-        if (value <= 0) (GameController.Instance as GameController).GameOver();
-	}
+        if (value <= 0)
+        {
+            death.Play();
+            (GameController.Instance as GameController).GameOver();
+        }
+    }
 
 
     private void OnTriggerEnter(Collider other) {
         if (other.transform.tag == "EnemyWeapon")
-			Damage(other.transform.GetComponentInParent<EnemyStats>().enemyDamage); //NO ME ARREPIENTO DE NADA
-        if (other.transform.tag == "Loot")
+        {
+            hit.Play();
+            Damage(other.transform.GetComponentInParent<EnemyStats>().enemyDamage); //NO ME ARREPIENTO DE NADA
+            hud.UpdateElement(HUD.ElementType.HEALTH, value);
+        }
 
+        if (other.transform.tag == "Loot")
         hud.UpdateElement(HUD.ElementType.HEALTH, value);
 
-        if (value <= 0) (GameController.Instance as GameController).GameOver();
+        if (value <= 0)
+        {
+            death.Play();
+            (GameController.Instance as GameController).GameOver();
+        }
     }
 
 }

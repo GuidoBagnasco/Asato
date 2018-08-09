@@ -45,6 +45,7 @@ public class ShootingEnemy : EnemyBase {
                     if (Physics.Raycast(transform.position, transform.forward, out ICU) && ICU.transform.tag == "Player")
                     {
                         animator.SetTrigger("Attack");
+                        Attack.Play();
                         _balaE.Emit(1);
                         move();
                     }

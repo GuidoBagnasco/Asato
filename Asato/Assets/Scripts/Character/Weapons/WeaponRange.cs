@@ -6,6 +6,7 @@ public class WeaponRange : Weapon {
 
 	protected ANIM animations;
 	public Animator anim;
+    public AudioSource fire;
     protected ParticleSystem bullets;
     [HideInInspector]
     public int ammo = 100;
@@ -25,7 +26,7 @@ public class WeaponRange : Weapon {
 
     public override void Attack () {
 		if (isPlaying || ammo == 0) return;
-
+        fire.Play();
 		PlayAnim (ANIM.Attack);
 
 		if (VaryAmmo (-1))

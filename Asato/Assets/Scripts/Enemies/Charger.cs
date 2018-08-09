@@ -86,6 +86,7 @@ public class Charger : EnemyBase
                         {
                             stunTime = 0;
                             cStates = ChargeStates.Rage;
+                            Attack.Play();
                         }
 
                         break;

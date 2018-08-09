@@ -6,6 +6,7 @@ public class MeiStats : Singleton<MeiStats>
 {
 
     public Health health;
+    public AudioSource pickUp;
     public WeaponRange gun;
     private int score = 0;
 
@@ -34,6 +35,7 @@ public class MeiStats : Singleton<MeiStats>
 
         if (other.transform.tag == "Loot")
         {
+            pickUp.Play();
             Restore();
             other.GetComponent<Collider>().enabled = false;
             foreach (Renderer r in other.GetComponentsInChildren(typeof(Renderer)))

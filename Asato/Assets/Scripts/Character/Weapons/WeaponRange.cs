@@ -6,8 +6,7 @@ public class WeaponRange : Weapon {
 
 	protected ANIM animations;
 	public Animator anim;
-    public AudioSource fire;
-    protected ParticleSystem bullets;
+    public ParticleSystem bullets;
     [HideInInspector]
     public int ammo = 100;
     private bool isPlaying = false;
@@ -19,18 +18,13 @@ public class WeaponRange : Weapon {
 	}
 
 
-    protected override void OnStart() {
-        bullets = GetComponentInChildren<ParticleSystem> ();
-    }
-
-
     public override void Attack () {
 		if (isPlaying || ammo == 0) return;
-        fire.Play();
+        (AudioSourcePlayer.Instance as AudioSourcePlayer).PlayOneShot(attackSound);
 		PlayAnim (ANIM.Attack);
 
-		if (VaryAmmo (-1))
-			OnAttack ();
+        if (VaryAmmo(-1))
+            OnAttack();
 	}
 
 
@@ -39,7 +33,7 @@ public class WeaponRange : Weapon {
 	}
 
 
-    public void Stopped() {
+    public void Stopped () {
         isPlaying = false;
     }
 
@@ -56,6 +50,7 @@ public class WeaponRange : Weapon {
 	public bool VaryAmmo (int amount) {
         ammo += amount;
 		(HUD.Instance as HUD).UpdateElement (HUD.ElementType.AMMO, ammo);
+
 		return ammo > 0;
 	}
 }

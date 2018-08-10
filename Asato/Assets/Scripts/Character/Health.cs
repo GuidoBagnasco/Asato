@@ -7,11 +7,13 @@ public class Health : MonoBehaviour {
 	private static int HEALTH_MAX = 100;
 	private int value = HEALTH_MAX;
 	private HUD hud = null;
-    public AudioSource hit;
-    public AudioSource death;
+    private AudioSourcePlayer aSource;
+    public AudioClip hit;
+    public AudioClip death;
 
     private void Start () {
 		hud = HUD.Instance as HUD;
+        aSource = AudioSourcePlayer.Instance as AudioSourcePlayer;
 	}
 
 
@@ -26,14 +28,14 @@ public class Health : MonoBehaviour {
     protected virtual void OnParticleCollision(GameObject other) {
         if (other.transform.tag == "EnemyWeapon")
         {
-            hit.Play();
+            aSource.PlayOneShot (hit);
             Damage(other.GetComponentInParent<EnemyStats>().enemyDamage);
             hud.UpdateElement(HUD.ElementType.HEALTH, value);
         }
 
         if (value <= 0)
         {
-            death.Play();
+            aSource.PlayOneShot (death);
             (GameController.Instance as GameController).GameOver();
         }
     }
@@ -42,7 +44,7 @@ public class Health : MonoBehaviour {
     private void OnTriggerEnter(Collider other) {
         if (other.transform.tag == "EnemyWeapon")
         {
-            hit.Play();
+            aSource.PlayOneShot(hit);
             Damage(other.transform.GetComponentInParent<EnemyStats>().enemyDamage); //NO ME ARREPIENTO DE NADA
             hud.UpdateElement(HUD.ElementType.HEALTH, value);
         }
@@ -52,7 +54,7 @@ public class Health : MonoBehaviour {
 
         if (value <= 0)
         {
-            death.Play();
+            aSource.PlayOneShot(death);
             (GameController.Instance as GameController).GameOver();
         }
     }

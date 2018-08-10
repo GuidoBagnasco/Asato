@@ -6,13 +6,18 @@ public class MeiStats : Singleton<MeiStats>
 {
 
     public Health health;
-    public AudioSource pickUp;
+    private AudioSourcePlayer aSource;
+    public AudioClip pickUp;
     public WeaponRange gun;
     private int score = 0;
 
 
+	private void Start()
+	{
+        aSource = AudioSourcePlayer.Instance as AudioSourcePlayer;
+	}
 
-    public void Restore()
+	public void Restore()
     {
         health.Damage(-80);
         gun.VaryAmmo(70);
@@ -30,12 +35,13 @@ public class MeiStats : Singleton<MeiStats>
     {
         return score;
     }
+
     private void OnTriggerEnter(Collider other)
     {
 
         if (other.transform.tag == "Loot")
         {
-            pickUp.Play();
+            aSource.PlayOneShot (pickUp);
             Restore();
             other.GetComponent<Collider>().enabled = false;
             foreach (Renderer r in other.GetComponentsInChildren(typeof(Renderer)))

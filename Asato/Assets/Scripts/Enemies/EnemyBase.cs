@@ -25,9 +25,11 @@ public class EnemyBase : MonoBehaviour {
     protected List<GameObject> ownList = null;
     protected EnemyType type;
     public ParticleSystem blood;
-    public AudioSource Death;
-    public AudioSource Attack;
-    public AudioSource Hit;
+    protected AudioSourcePlayer aSource;
+    public AudioClip attack;
+    public AudioClip death;
+    public AudioClip hit;
+
 
 
 	protected void Start () {
@@ -36,6 +38,7 @@ public class EnemyBase : MonoBehaviour {
         player = GameObject.FindGameObjectWithTag("Player");
         rigidBody = this.GetComponent<Rigidbody>();
         navigator = this.GetComponent<NavMeshAgent>();
+        aSource = AudioSourcePlayer.Instance as AudioSourcePlayer;
 		OnStart ();
     }
 
@@ -45,20 +48,19 @@ public class EnemyBase : MonoBehaviour {
 
     protected virtual void OnParticleCollision(GameObject other) {
         if (other.transform.tag == "PlayerWeapon") {
-            Weapon w = other.GetComponentInParent<Weapon>();
-            if (w != null) stats.HealthLoss(w.dmg);
-            Hit.Play();
+            Weapon gun = other.transform.parent.GetComponentInChildren<WeaponRange>();
+            stats.HealthLoss(gun.dmg);
+            aSource.PlayOneShot (hit);
             Emit();
         }
     }
 
 
     protected virtual void OnTriggerEnter(Collider other) {
-        
         if (other.transform.tag == "PlayerWeapon") {
             Weapon w = other.GetComponent<Weapon>();
             if (w != null) stats.HealthLoss(w.dmg);
-            Hit.Play();
+            aSource.PlayOneShot (hit);
             Emit();
         }
     }
@@ -76,10 +78,10 @@ public class EnemyBase : MonoBehaviour {
 
 
     public virtual void Recycle () {
-        AudioSource.PlayClipAtPoint(Death.clip, transform.position, 1);
+        aSource.PlayAtPoint (death, transform.position);
         if (stats.enemyHealth < 1)
         {
-           
+            blood.Stop();
             factory.ReturnToList(gameObject, type);
         }
     }

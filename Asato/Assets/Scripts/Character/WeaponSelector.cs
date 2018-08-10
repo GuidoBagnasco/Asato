@@ -44,12 +44,12 @@ public class WeaponSelector : Singleton<WeaponSelector> {
 
 
 	private void ChangeWeapon (float d) {
-		weapons[current].Sheathe (false);
+        weapons[current].StopAutoAttack ().Sheathe (true);
 		if (d > sensibility)
 			current = (++current) < weapons.Count ? current : 0;
 		else if (d < -sensibility)
 			current = (--current) >= 0 ? current : weapons.Count - 1;
-		weapons[current].Sheathe (true);
+		weapons[current].Sheathe (false);
 
 		CurrentType = weapons [current].type;
 	}

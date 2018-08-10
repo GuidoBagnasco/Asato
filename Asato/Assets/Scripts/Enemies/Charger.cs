@@ -86,7 +86,7 @@ public class Charger : EnemyBase
                         {
                             stunTime = 0;
                             cStates = ChargeStates.Rage;
-                            Attack.Play();
+                            aSource.PlayOneShot(attack);
                         }
 
                         break;
@@ -120,7 +120,6 @@ public class Charger : EnemyBase
 
         if (other.transform.tag == "Player")
         {
-            Debug.Log("hola");
             animator.SetBool("attack", false);
             animator.SetBool("walking", false);
             cStates = ChargeStates.Stun;

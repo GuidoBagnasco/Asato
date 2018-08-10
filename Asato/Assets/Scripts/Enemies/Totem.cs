@@ -23,7 +23,6 @@ public class Totem : EnemyBase {
         //    enemy.GetComponent<EnemyStats>().HealthLoss(100);
         //}
         factory.InstantiateEnemy(type, transform, 1);
-      //  AudioSource.PlayClipAtPoint(Death.clip, transform.position);
         loot.transform.position = new Vector3(transform.position.x, loot.transform.position.y, transform.position.z);
         loot.GetComponent<Collider>().enabled = true;
         foreach (Renderer r in loot.GetComponentsInChildren(typeof(Renderer)))

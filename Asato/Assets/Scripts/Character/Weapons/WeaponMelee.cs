@@ -7,7 +7,6 @@ public class WeaponMelee : Weapon {
 
 	protected ANIM animations;
 	public Animator anim;
-    public AudioSource attack;
 
 
 	protected override void OnAwake () {
@@ -17,7 +16,7 @@ public class WeaponMelee : Weapon {
 
 	public override void Attack () {
 		PlayAnim (ANIM.Attack);
-        attack.Play();
+        (AudioSourcePlayer.Instance as AudioSourcePlayer).PlayOneShot(attackSound);
 		OnAttack ();
 	}
 

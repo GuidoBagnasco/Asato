@@ -10,6 +10,7 @@ TagManager:
   - FireButton
   - Fire
   - Loot
+  - Gun
   layers:
   - Default
   - TransparentFX
